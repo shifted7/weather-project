@@ -1,4 +1,4 @@
-'use strict';
+
 
 const express = require ('express');
 const app = express();
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 const routes = require('./routes.js');
 
 // Configurations
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true,}));
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
