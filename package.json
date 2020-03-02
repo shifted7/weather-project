@@ -2,7 +2,7 @@
   "name": "weather-project",
   "version": "1.0.0",
   "description": "- A project that aims to provide the best real-time weather forecast, by combining data from multiple APIs into one, highly accurate forecast.",
-  "main": "routes.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/shifted7/weather-project#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "env": "0.0.2",
     "express": "^4.17.1",
+    "method-override": "^3.0.0",
     "pg": "^7.18.2",
     "superagent": "^5.2.2"
   }
