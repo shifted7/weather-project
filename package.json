@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/shifted7/weather-project/issues"
   },
-  "homepage": "https://github.com/shifted7/weather-project#readme"
+  "homepage": "https://github.com/shifted7/weather-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.18.2",
+    "superagent": "^5.2.2"
+  }
 }
