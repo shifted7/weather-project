@@ -22,3 +22,8 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', routes.handleHome);
+
+
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});
