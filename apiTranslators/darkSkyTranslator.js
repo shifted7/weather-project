@@ -1,17 +1,17 @@
 'use strict';
 
-function DarkSkyTranslator(obj){
-  this.temperature = obj.temp;
-  this.humidity = obj.humidity;
+function DarkSkyTranslator(obj, city, lat, lon){
+  this.city_name = city;
+  this.date = obj.time;
+  this.latitude = lat;
+  this.longitude = lon;
+  this.temperature = obj.temperatureHigh;
+  this.humidity = obj.humidity * 100;
   this.wind_speed = obj.windSpeed;
-  this.wind_speed = obj.windDir;
-  this.description = obj.desc;
-  this.api_name = obj.api;
-  this.date = obj.date;
-  this.date_modified = obj.dateModified;
-  this.city_name = obj.city;
-  this.latitude = obj.lat;
-  this.longitude = obj.lon;
+  this.wind_direction = obj.windBearing;
+  this.description = obj.summary;
+  this.api_name = 'darkSky';
+  this.date_modified = new Date();
 }
 
 module.exports = DarkSkyTranslator;
