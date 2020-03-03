@@ -13,3 +13,5 @@ function WeatherIsHereTranslation(obj){
   this.api_name = 'weatherIsHere';
   this.date_retrieved = new Date();
 }
+
+module.exports = WeatherIsHereTranslation;

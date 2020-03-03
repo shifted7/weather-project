@@ -1,3 +1,5 @@
+'use strict';
+
 function DarkSkyTranslator(obj){
   this.temperature = obj.temp;
   this.humidity = obj.humidity;
@@ -11,3 +13,5 @@ function DarkSkyTranslator(obj){
   this.latitude = obj.lat;
   this.longitude = obj.lon;
 }
+
+module.exports = DarkSkyTranslator;
