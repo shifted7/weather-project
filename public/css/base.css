@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    color: rgb(192, 83, 158);
+    background-image: url(../video/Blue_Sky_and_Clouds_Timelapse_0892__Videvo.mov);
+}
+video{
+    position: fixed;
+    z-index: -1;
+}
+button{
+    text-align: center;
+    float: right;
+}
+header{
+    display: inline;
+}
+h1{
+    font-size: 60px;
+    text-align: center;
+    color: darkgreen;
+}
+main{
+    width: 100%;
+    padding-left:15%;
+    padding-right: 15%;
+    font-size: 30px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+}
+.api1{
+    height: 100px;
+}
+.api2{
+    height: 100px;
+}
+.api3{
+    height: 100px;
+}
+#current{
+    height: 120px;
+}
+#meter{
+    height:80px;
+}
+#forecast{
+    height: 70px;
+}
+li{
+    display: inline;
+    padding-left: 20px;
+}
+@media screen and (min-width:481px) and (max-width: 1080px) {
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    article{
+        display: grid;
+        grid-template-columns: 1fr;
+}
+.api1{
+    float: left;
+}
+.api2{
+    float: right;
+}
+.api3{
+    float: left;
+}
+}
+
+@media screen and (min-width:1080px){
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    article{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
