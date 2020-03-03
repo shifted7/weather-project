@@ -20,17 +20,6 @@ function handleHome(request, response){
   response.render('./pages/index');
 }
 
-<<<<<<< HEAD
-function getOpenWeatherData(){
-  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`;
-  superagent(url)
-    .then(results=>{
-      console.log(results);
-    });
-}
-
-module.exports = {handleHome, getOpenWeatherData,};
-=======
 
 function getOpenWeatherData(request, response){
   let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
@@ -48,4 +37,3 @@ function getDarkSkyWeatherData(request, response){
 }
 
 module.exports = {handleHome, getOpenWeatherData};
->>>>>>> 25bd590cf74e6b11c20e76dedf2bcc7f3395074b

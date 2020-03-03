@@ -11,31 +11,19 @@
     "type": "git",
     "url": "git+https://github.com/shifted7/weather-project.git"
   },
-<<<<<<< HEAD
-  "author": "",
-=======
   "author": "Andrew Casper, Morgan Heinemann, Alex Pena, and Anthony Cunningham",
->>>>>>> 25bd590cf74e6b11c20e76dedf2bcc7f3395074b
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shifted7/weather-project/issues"
   },
   "homepage": "https://github.com/shifted7/weather-project#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "dotenv": "^8.2.0",
-    "ejs": "^3.0.1",
-    "env": "0.0.2",
-    "express": "^4.17.1",
-    "method-override": "^3.0.0",
-=======
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "modules": "^0.4.0",
->>>>>>> 25bd590cf74e6b11c20e76dedf2bcc7f3395074b
     "pg": "^7.18.2",
     "superagent": "^5.2.2"
   }
