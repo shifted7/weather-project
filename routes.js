@@ -45,6 +45,11 @@ function getOpenWeatherData(request, response){
     })
 }
 
+function getWeatherIsHereData(request, response){
+  let cityQuery = request.query.input;
+  let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}`;
+}
+
 function getDarkSkyWeatherData(request, response){
   console.log(request.query);
   let city = request.query.city;
