@@ -11,16 +11,24 @@ app.set('view engine', 'ejs');
 
 function handleHome(request, response){
   console.log('hello world');
-  getOpenWeatherData();
+  getOpenWeatherData(request, response);
+  getDarkSkyWeatherData(request, response);
   response.render('./pages/index');
 }
 
-function getOpenWeatherData(){
-  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`
+function getOpenWeatherData(request, response){
+  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
   superagent(url)
     .then(results=>{
-      console.log(results);
+      console.log(results[0]);
+      // need to render results
     })
+}
+
+function getDarkSkyWeatherData(request, response){
+  console.log(request.query);
+  //let location = request.query
+  // let url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_STACK_API_KEY}&query=${location}`;
 }
 
 module.exports = {handleHome, getOpenWeatherData};
