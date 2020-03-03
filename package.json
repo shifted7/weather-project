@@ -11,7 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/shifted7/weather-project.git"
   },
-  "author": "",
+
+  "author": "Andrew Casper, Morgan Heinemann, Alex Pena, and Anthony Cunningham",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shifted7/weather-project/issues"
