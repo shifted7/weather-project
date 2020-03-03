@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 function OpenWeatherTranslator(obj){
@@ -14,4 +15,5 @@ function OpenWeatherTranslator(obj){
   this.date_retrieved = new Date();
 }
 
+// eslint-disable-next-line no-undef
 module.exports = OpenWeatherTranslator;
