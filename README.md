@@ -27,3 +27,7 @@ Acceptance Tests
 Search for Seattle weather should return current weather and forecast data from each API.
 Search for Seattle weather should save the data to the database.
 Recent searches by user should be saved in localstorage
+
+
+*** Features ***
+Database - Schema created and new functions created to store/retrieve data from database with minimal inputs. sample data structure proposed.
