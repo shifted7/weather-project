@@ -3,13 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css.css">
+    <link rel="stylesheet" type="text/css" href="/css/module.css">
     <title>Truthy Weather</title>
 </head>
 <html>
   <body>
-    <h1>Truthy Weather</h1>
-    <input name="getWeatherInput" type="text" placeholder="Enter a city">
-    <button id="getWeatherButton">Get Weather</button>
+    <header>
+      <video autoplay muted loop id="myVideo">
+        <source src="/video/Raindrops_Videvo.mp4" type="video/mp4">
+      </video>
+      <h1>Truthy Weather</h1>
+      <input name="getWeatherInput" type="text" placeholder="Enter a city">
+      <button id="getWeatherButton">Get Weather</button>
+      <button>Drop Down for Locations</button>
+    </header>
+    <main>
+      <section>
+        <div id="current">Current Average Display</div>
+        <div id="meter">Confidence Meter</div>
+        <div id="forecast">7-Day Forcast</div>
+      </section>
+      <article>
+        <div class=api1 >API Source 1</div>
+        <div class=api2>API Source 2</div>
+        <div class=api33>API Source 3</div>
+      </article>
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/facebook.png" height="40"></a></li>
+            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/instagram.png" height="40"></a></li>
+            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/twitter.png" height="40"></a></li>
+            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/pintrest.png" height="40"></a></li>
+          </ul>
+        </nav>
+      </footer>
+    </main>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/js/app.js"></script>
