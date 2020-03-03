@@ -1,3 +1,5 @@
+'use strict';
+
 function WeatherIsHereTranslation(obj){
   this.city_name = obj.obseravations.location[0].city;
   this.date = obj.observations.observation[0].utcTime;
