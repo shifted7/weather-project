@@ -1,9 +1,13 @@
 'use strict';
 
-const express = require ('express');
-const app = express();
 require('dotenv').config();
-const superagent = require ('superagent');
+const express = require('express');
+const app = express();
+require('ejs');
+const cors = require('cors');
+app.use(cors());
+
+const superagent = require('superagent');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
@@ -16,11 +20,11 @@ function handleHome(request, response){
 }
 
 function getOpenWeatherData(){
-  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`
+  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`;
   superagent(url)
     .then(results=>{
       console.log(results);
-    })
-}
+    });
+};
 
 module.exports = {handleHome, getOpenWeatherData};
