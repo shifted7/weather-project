@@ -1,9 +1,13 @@
 'use strict';
 
-const express = require ('express');
-const app = express();
 require('dotenv').config();
-const superagent = require ('superagent');
+const express = require('express');
+const app = express();
+require('ejs');
+const cors = require('cors');
+app.use(cors());
+
+const superagent = require('superagent');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
