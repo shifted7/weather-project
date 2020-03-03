@@ -31,14 +31,18 @@ function handleForecast(request, response){
 
 
 function getOpenWeatherData(request, response){
-  // let cityNameQuery = request.query.city;
-  let cityNameQuery = 'seattle';
+  // let cityNameQuery = request.query.input;
+  let cityNameQuery = 'seattle'; // dummy value
   let url = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityNameQuery}&mode=json&units=metric&cnt=7&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
   superagent(url)
     .then(results=>{
       console.log(results);
       // need to render results
-    });
+    })
+    .catch(error=> {
+      console.error('Failed to get results from openweather: ', error);
+      response.status(500).send(error);
+    })
 }
 
 function getDarkSkyWeatherData(request, response){
