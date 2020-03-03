@@ -43,6 +43,18 @@ function getOpenWeatherData(request, response){
 
 function getDarkSkyWeatherData(request, response){
   console.log(request.query);
+  let city = request.query.city;
+
+  const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
+  const darkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
+
+  darkSkyForecast(city).then( data => {
+    console.log(data);
+    let darkSky = new darkSkyTranslator(data.forecast,data.lat ,data.lon );
+    console.log(darkSky);
+    response.send(darkSky);
+  });
+
   //let location = request.query
   // let url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_STACK_API_KEY}&query=${location}`;
 }
