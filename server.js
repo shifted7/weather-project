@@ -5,9 +5,6 @@ const app = express();
 require('dotenv').config();
 const superagent = require ('superagent');
 const methodOverride = require('method-override');
-// const pg = require('pg');
-// const client = new pg.Client(process.env.DATABASE_URL);
-// client.on('error', err=>console.error(err));
 const client = require('./libs/client');
 
 require('ejs');
