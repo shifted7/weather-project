@@ -1,8 +1,12 @@
 'use strict';
+///////DEPENDENCIES AND LIBRARIES///////
+
 
 const express = require ('express');
 const app = express();
+
 require('dotenv').config();
+
 const superagent = require ('superagent');
 const methodOverride = require('method-override');
 const client = require('./libs/client');
