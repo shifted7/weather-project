@@ -15,8 +15,8 @@ app.set('view engine', 'ejs');
 
 function handleHome(request, response){
   console.log('Returned home');
-  
-  response.render('./pages/index');
+  let data = {temp: 0, windSpeed: 0, windDir: 0, desc: 'none'}; // dummy values
+  response.render('./pages/index', {obj: data});
 }
 
 function handleToday(request, response){
