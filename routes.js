@@ -31,7 +31,7 @@ function handleForecast(request, response){
 
 
 function getOpenWeatherData(request, response){
-  // let cityNameQuery = request.query.city;
+  // let cityNameQuery = request.query.input;
   let cityNameQuery = 'seattle';
   let url = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityNameQuery}&mode=json&units=metric&cnt=7&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
   superagent(url)
@@ -39,6 +39,11 @@ function getOpenWeatherData(request, response){
       console.log(results);
       // need to render results
     });
+}
+
+function getWeatherIsHereData(request, response){
+  let cityQuery = request.query.input;
+  let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}`;
 }
 
 function getDarkSkyWeatherData(request, response){
