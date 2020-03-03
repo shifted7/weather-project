@@ -2,28 +2,41 @@
     box-sizing: border-box;
 }
 body{
-    color: rgb(192, 83, 158);
+    color: hotpink;
     background-image: url(../video/Blue_Sky_and_Clouds_Timelapse_0892__Videvo.mov);
 }
 video{
     position: fixed;
     z-index: -1;
 }
+input{
+    height:40px;
+    width:280px;
+}
 button{
     text-align: center;
-    float: right;
+    /* float: right; */
+    height:40px;
 }
 header{
     display: inline;
 }
 h1{
-    font-size: 60px;
+    font-family: 'Libre Barcode 39 Text';
+    font-size: 6em;
     text-align: center;
-    color: darkgreen;
+    color: hotpink;
+    padding-bottom: 40px;
+}
+aside{
+    display: block;
+    height:100px;
+    float: left;
+    clear: both;
 }
 main{
     width: 100%;
-    padding-left:15%;
+    padding-left:10%;
     padding-right: 15%;
     font-size: 30px;
     text-align: center;
@@ -61,6 +74,9 @@ li{
     article{
         display: grid;
         grid-template-columns: 1fr;
+}
+aside{
+    float: none;
 }
 .api1{
     float: left;
