@@ -27,7 +27,7 @@ function getOpenWeatherData(request, response){
     .then(results=>{
       console.log(results[0]);
       // need to render results
-    })
+    });
 }
 
 function getDarkSkyWeatherData(request, response){
