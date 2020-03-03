@@ -1,20 +1,3 @@
-
-app.get('/weather', (request, response) => {
-  let weather = [];
-  let lat = request.query.latitude;
-  let lon = request.query.longitude;
-  let url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API}/${lat},${lon}`;
-superagent.get(url)
-    .then(results => {
-      let wData = results.body.daily.data;
-      wData.map(day => {
-        let newDay = new Weather(day);
-        weather.push(newDay);
-      });
-      response.status(200).send(weather);
-    });
-});
-
 function DarkSkyTranslator(obj){
   this.temperature = obj.temp;
   this.humidity = obj.humidity;
