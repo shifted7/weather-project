@@ -13,3 +13,5 @@ function OpenWeatherTranslator(obj){
   this.api_name = 'openWeather';
   this.date_retrieved = new Date();
 }
+
+module.exports = OpenWeatherTranslator;
