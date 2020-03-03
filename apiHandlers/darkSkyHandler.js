@@ -16,8 +16,8 @@ function darkSkyForecast(cityName){
       let darkUrl = `https://api.darksky.net/forecast/${process.env.DARKSKY_API}/${latitude},${longitude}`;
 
       superagent.get(darkUrl)
-        .then( weatherData => {
-          return weatherData;
+        .then( forecast => {
+          return {data:forecast, lat:latitude, lon:longitude};
         });
     });
 }
@@ -27,5 +27,6 @@ function darkSkyForecast(cityName){
 
 // 48c62288f572558fa4b4bcd0c31979eb
 // 47.608013,-122.335167
+// https://api.darksky.net/forecast/18a3b8ded8310e8cfabdfa767c100cdd/47.608013,-122.335167
 
 module.exports = darkSkyForecast;
