@@ -14,18 +14,29 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 
 function handleHome(request, response){
-  console.log('hello world');
-  getOpenWeatherData(request, response);
-  getDarkSkyWeatherData(request, response);
+  console.log('Returned home');
+  
   response.render('./pages/index');
 }
 
+function handleToday(request, response){
+  console.log(request.query);
+  getOpenWeatherData(request, response);
+  getDarkSkyWeatherData(request, response);
+}
+
+function handleForecast(request, response){
+  console.log(request.query);
+};
+
 
 function getOpenWeatherData(request, response){
-  let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
+  // let cityNameQuery = request.query.city;
+  let cityNameQuery = 'seattle';
+  let url = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityNameQuery}&mode=json&units=metric&cnt=7&APPID=${process.env.OPEN_WEATHER_API_KEY}`; // need to allow for different locations, getting location from user
   superagent(url)
     .then(results=>{
-      console.log(results[0]);
+      console.log(results);
       // need to render results
     });
 }
@@ -36,4 +47,6 @@ function getDarkSkyWeatherData(request, response){
   // let url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_STACK_API_KEY}&query=${location}`;
 }
 
-module.exports = {handleHome, getOpenWeatherData};
+
+
+module.exports = {handleHome, handleToday, handleForecast};
