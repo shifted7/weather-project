@@ -25,6 +25,8 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', routes.handleHome);
+app.get('/today', routes.handleToday);
+app.get('/forecast', routes.handleForecast);
 
 client.connect()
   .then(() =>
