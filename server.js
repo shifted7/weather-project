@@ -1,12 +1,8 @@
 'use strict';
-///////DEPENDENCIES AND LIBRARIES///////
-
 
 const express = require ('express');
 const app = express();
-
 require('dotenv').config();
-
 const superagent = require ('superagent');
 const methodOverride = require('method-override');
 const client = require('./libs/client');
@@ -25,12 +21,8 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', routes.handleHome);
-app.get('/today', routes.handleToday);
-app.get('/forecast', routes.handleForecast);
 
-client.connect()
-  .then(() =>
-    app.listen(PORT, () => {
-      console.log(`listening on ${PORT}`);
-    })
-  );
+
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});
