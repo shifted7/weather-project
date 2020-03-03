@@ -21,15 +21,20 @@
       <button>Drop Down for Locations</button>
     </header>
     <main>
-      <section>
+      <section class=avg>
         <div id="current">Current Average Display</div>
         <div id="meter">Confidence Meter</div>
         <div id="forecast">7-Day Forcast</div>
       </section>
       <article>
-        <div class=api1 >API Source 1</div>
-        <div class=api2>API Source 2</div>
-        <div class=api33>API Source 3</div>
+        <div class=api>
+          <ul>
+            <h2><%= obj.temp %></h2>
+            <li><%= obj.windSpeed %></li>
+            <li><%= obj.windDir %></li>
+            <li><%= obj.disc %></li>
+          </ul>
+        </div>
       </article>
       <footer>
         <nav>
