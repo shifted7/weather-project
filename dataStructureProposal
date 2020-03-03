@@ -1,0 +1,10 @@
+{
+  average{temperature:'291', humidity:'20', precipitation:'3', windspeed:'3.1', direction:80'}
+  apis[apiname:'open weather', days[]
+      apiname:'darksky', days[]  
+      apiname:'yahoo', days[
+        [temperature:'289', humidity:'21', precipitation:'2', windspeed:'3', direction:'82'],
+        [temperature:'290, humidity:'20', preciptation:'7', windspeed:'4', direction:'70']
+      ]
+  ]
+}
