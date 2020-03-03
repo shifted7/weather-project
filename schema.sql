@@ -3,17 +3,17 @@ DROP TABLE IF EXISTS locations;
 
 CREATE TABLE locations (
     id SERIAL,
-    user_name VARCHAR(255),
-    location_name VARCHAR(255) PRIMARY KEY,
-    weather_data TEXT
+    api_name VARCHAR(255),
+    location_name VARCHAR(255),
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6),
+    percipitation DECIMAL(3,1),
+    humidity DECIMAL(3,1),
+    wind_speed DECIMAL(4,1),
+    wind_direction DECIMAL(3),
+    description VARCHAR(255),
+    date_modified DATE
     );
 
 SELECT * FROM locations;
 
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  user_name VARCHAR(255) NOT NULL UNIQUE,
-  password TEXT not NULL
-);
-
-SELECT * FROM users;
