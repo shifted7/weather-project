@@ -11,7 +11,8 @@ function DarkSkyTranslation(obj, city, lat, lon){
   this.wind_direction = obj.windBearing;
   this.description = obj.summary;
   this.api_name = 'darkSky';
-  this.date_modified = new Date();
+  let now = new Date();
+  this.date_retrieved = Math.round(now.getTime() / 1000);
 }
 
 module.exports = DarkSkyTranslation;

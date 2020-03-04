@@ -9,6 +9,25 @@
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
     <link rel="stylesheet" type="text/css" href="/css/module.css">
     <title>Truthy Weather</title>
+
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <h1>{{city_name}}</h1>
+        <ul>
+          <li>{{temperature}}</li>
+          <li>{{humidity}}</li>
+          <li>{{wind_speed}}</li>
+          <li>{{wind_direction}}</li>
+          <li>{{description}}</li>
+          <li>{{api_name}}</li>
+        </ul>
+        <div class="body">
+          {{body}}
+        </div>
+      </div>
+    </script>
+
+
 </head>
 <html>
   <body>
