@@ -16,6 +16,7 @@ require('ejs');
 const PORT = process.env.PORT || 3001;
 
 const routes = require('./routes.js');
+const handleDarkSkyAPIorDB = require('./apiHandlers/darkSkyHandler.js');
 
 // Configurations
 app.use(express.urlencoded({extended: true}));
@@ -25,8 +26,9 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', routes.handleHome);
-app.get('/today', routes.handleToday);
-app.get('/forecast', routes.handleForecast);
+app.get('/today/openWeather', routes.handleTodayOpenWeatherAPIorDB);
+app.get('/today/isHere', routes.handleTodayIsHereAPIorDB);
+app.get('/today/darkSky', handleDarkSkyAPIorDB);
 
 client.connect()
   .then(() =>

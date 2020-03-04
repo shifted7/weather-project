@@ -15,7 +15,6 @@ input{
 }
 button{
     text-align: center;
-    /* float: right; */
     height:40px;
 }
 
@@ -29,8 +28,6 @@ h1{
 aside{
     display: block;
     height:100px;
-    /* float: left; */
-    /* clear: both; */
     margin: auto;
     width: 80%;
 }
@@ -47,6 +44,10 @@ main{
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 50px;
+}
+ul{
+    height: 150px;
+    margin: auto;
 }
 .api1{
     height: 100px;
