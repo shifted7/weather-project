@@ -1,6 +1,6 @@
 'use strict';
 
-function DarkSkyTranslator(obj, city, lat, lon){
+function DarkSkyTranslation(obj, city, lat, lon){
   this.city_name = city;
   this.date = obj.time;
   this.latitude = lat;
@@ -14,4 +14,4 @@ function DarkSkyTranslator(obj, city, lat, lon){
   this.date_modified = new Date();
 }
 
-module.exports = DarkSkyTranslator;
+module.exports = DarkSkyTranslation;
