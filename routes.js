@@ -106,7 +106,7 @@ function getDarkSkyWeatherData(request, response){
   darkSkyForecast(city).then( data => {
     console.log(data);
 
-    let darkSky = new DarkSkyTranslator(data.data, data.lat ,data.lon );
+    let darkSky = new DarkSkyTranslation(data.data, data.lat ,data.lon );
     console.log('test', darkSky);
     console.log(JSON.stringify(darkSky));
 
