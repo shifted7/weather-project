@@ -47,8 +47,25 @@ function getOpenWeatherData(request, response){
 
 function getWeatherIsHereData(request, response){
   let cityQuery = request.query.input;
-  let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}`;
-}
+  let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityQuery}&format=json`;
+  let latitude = null;
+  let longitude = null;
+
+  superagent.get(lociqUrl)
+    .then(data => {
+      latitude = data[0].lat;
+      longitude = data[0].lon;
+    })
+  let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}&product=forecast_7days_simple&latitude=${latitude}&longitude=${longitude}`;
+  superagent.get(url)
+    .then(results=>{
+      console.log(results.body);
+    });
+    .catch(error=>{
+      console.error('Did not get results from weatherishere: ', error);
+      response.status(500).send(error)
+    })
+};
 
 function getDarkSkyWeatherData(request, response){
   console.log(request.query);
