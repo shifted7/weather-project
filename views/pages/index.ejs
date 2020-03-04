@@ -21,6 +21,11 @@
         <input name="getWeatherInput" type="text" placeholder="Enter a city">
         <button>Saved Locations</button>
         <button id="getWeatherButton">Get Weather</button>
+        <ul>
+          <% cities.forEach(city => { %>
+            <li><%= city.city_name %></li>
+          <% }); %>
+        </ul>
       </aside>
     </header>
     <main>
