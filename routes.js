@@ -6,6 +6,7 @@ const app = express();
 require('ejs');
 const cors = require('cors');
 app.use(cors());
+const client = require('./libs/client');
 
 const superagent = require('superagent');
 
@@ -15,19 +16,35 @@ app.set('view engine', 'ejs');
 
 function handleHome(request, response){
   console.log('Returned home');
-  let data = {temp: 0, windSpeed: 0, windDir: 0, desc: 'none'}; // dummy values
-  response.render('./pages/index', {obj: data});
+  let sql = 'SELECT DISTINCT city_name FROM locations;';
+  client.query(sql)
+    .then(dbData => {
+      console.log(dbData.rows);
+      let data = {temp: 0, windSpeed: 0, windDir: 0, desc: 'none'}; // dummy values
+      response.render('./pages/index', {obj: data, cities: dbData.rows});
+    });
 }
 
 function handleToday(request, response){
-  console.log(request.query);
-  // getOpenWeatherData(request, response);
-  getDarkSkyWeatherData(request, response);
+  console.log('Query:', request.query);
+  let city = request.query.input;
+  let sql = 'SELECT * FROM locations WHERE city_name = $1;';
+  let safeValues = [city];
+  client.query(sql, safeValues)
+    .then(results => {
+      if (results.rows.length>0){
+        response.send(results.rows);
+      }else {
+        // getOpenWeatherData(request, response);
+        getDarkSkyWeatherData(request, response);
+
+      }
+    });
 }
 
 function handleForecast(request, response){
   console.log(request.query);
-};
+}
 
 
 function getOpenWeatherData(request, response){
@@ -42,7 +59,7 @@ function getOpenWeatherData(request, response){
     .catch(error=> {
       console.error('Failed to get results from openweather: ', error);
       response.status(500).send(error);
-    })
+    });
 }
 
 function getWeatherIsHereData(request, response){
@@ -55,16 +72,16 @@ function getWeatherIsHereData(request, response){
     .then(data => {
       latitude = data[0].lat;
       longitude = data[0].lon;
-    })
+    });
   let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}&product=forecast_7days_simple&latitude=${latitude}&longitude=${longitude}`;
   superagent.get(url)
     .then(results=>{
       console.log(results.body);
-    })
-    .catch(error => {
-      console.error('Did not get results from weatherishere: ', error);
-      response.status(500).send(error);
     });
+  // .catch(error=>{
+  //   console.error('Did not get results from weatherishere: ', error);
+  //   response.status(500).send(error)
+  // })
 }
 
 function getDarkSkyWeatherData(request, response){
@@ -72,14 +89,15 @@ function getDarkSkyWeatherData(request, response){
   let city = request.query.input;
 
   const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
-  const DarkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
-
+  const darkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
+  const storeWeatherData = require('./database_methods/storeData');
   // let darkSky = new Promise(darkSkyForecast)
 
-  
+
 
   darkSkyForecast(city).then( data => {
     console.log(data);
+
     let darkSky = new DarkSkyTranslator(data.data, data.lat ,data.lon );
     console.log('test', darkSky);
     console.log(JSON.stringify(darkSky));
