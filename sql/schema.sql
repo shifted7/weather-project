@@ -13,7 +13,8 @@ CREATE TABLE locations (
     wind_direction NUMERIC(3),
     description VARCHAR(255),
     api_name VARCHAR(255),
-    date_retrieved VARCHAR(255)
+    date_retrieved VARCHAR(255),
+    UNIQUE (city_name, api_name)
     );
 
 SELECT * FROM locations;
