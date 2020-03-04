@@ -2,7 +2,7 @@
 'use strict';
 
 function OpenWeatherTranslation(obj){
-  this.city_name = obj.userInput;
+  this.city_name = obj.city.name;
   this.date = obj.results.list[0].dt;
   this.latitude = obj.results.city.coord.lat;
   this.longitude = obj.results.city.coord.lon;
@@ -12,7 +12,8 @@ function OpenWeatherTranslation(obj){
   this.wind_direction = obj.results.list[0].wind.deg;
   this.description = obj.results.weather[0].description;
   this.api_name = 'openWeather';
-  this.date_retrieved = new Date();
+  let now = new Date();
+  this.date_retrieved = Math.round(now.getTime() / 1000);
 }
 
 // eslint-disable-next-line no-undef

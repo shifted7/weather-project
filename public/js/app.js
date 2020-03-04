@@ -8,12 +8,12 @@ function getWeather(event){
   let getWeatherInput = $('input').val();
   console.log(getWeatherInput);
   // add ajax call with query to '/'
-  $.ajax(`/today/openWeather/?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
+  $.ajax(`/today/openWeather?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
       console.log('Ajax response recieved:', ajaxResponse);
     });
 
-  $.ajax(`/today/isHere/?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
+  $.ajax(`/today/isHere?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
       console.log('Ajax response recieved:', ajaxResponse);
     });
