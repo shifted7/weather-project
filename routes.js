@@ -97,10 +97,12 @@ function getDarkSkyWeatherData(request, response){
 
   darkSkyForecast(city).then( data => {
     console.log(data);
-    let darkSky = new darkSkyTranslator(data.data, data.lat ,data.lon );
-    console.log('Dark Sky:',darkSky);
-    storeWeatherData(darkSky.data);
-    response.send(darkSky);
+
+    let darkSky = new DarkSkyTranslator(data.data, data.lat ,data.lon );
+    console.log('test', darkSky);
+    console.log(JSON.stringify(darkSky));
+
+    response.send(JSON.stringify(darkSky));
   });
 
   //let location = request.query
@@ -110,3 +112,4 @@ function getDarkSkyWeatherData(request, response){
 
 
 module.exports = {handleHome, handleToday, handleForecast};
+
