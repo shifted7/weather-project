@@ -94,6 +94,8 @@ function getWeatherIsHereData(request, response){
 
 const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
 const DarkSkyTranslation = require('./apiTranslators/darkSkyTranslator');
+
+// Dark Sky endpoint function
 function getDarkSkyWeatherData(request, response){
   let city = request.query.input;
   const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
@@ -101,21 +103,40 @@ function getDarkSkyWeatherData(request, response){
   const storeWeatherData = require('./database_methods/storeData');
   // let darkSky = new Promise(darkSkyForecast)
 
+  let sql = `SELECT * FROM locations WHERE city_name=$1 AND api_name=$2 AND $3 - date_retrieved < 84000 LIMIT 1;`;
+  let today = new Date();
+  today = Math.round(today.getTime() / 1000);
+  
+  let safeVals = [city, 'darkSky', today];
+  
+  console.log("HI!");
+  client.query(sql, safeVals)
+    .then(results => {
+      console.log('my return', results.rows);
+      if(results.rows.length > 0){
+        console.log('dbvals', results.rows);
+        let _temp = JSON.stringify(results.rows);
+        response.send(_temp);
+      }else{
+        darkSkyForecast(city).then( data => {
+          console.log(data);
+          let darkSky = new DarkSkyTranslation(data.data, city, data.lat ,data.lon );
+          
+          storeWeatherData(darkSky)
+          .then(payload => {
+              console.log('test', payload);
+              console.log(JSON.stringify(payload));
+              response.send(JSON.stringify(payload));
+          });
+          
+        });
+      }
+    });
 
-
-  darkSkyForecast(city).then( data => {
-    console.log(data);
-
-    let darkSky = new DarkSkyTranslation(data.data, data.lat ,data.lon );
-    console.log('test', darkSky);
-    console.log(JSON.stringify(darkSky));
-
-    response.send(JSON.stringify(darkSky));
-
-  });
+  
 }
 
 
 
-module.exports = {handleHome, handleToday, handleForecast};
+module.exports = {handleHome, handleToday, handleForecast, getDarkSkyWeatherData,};
 
