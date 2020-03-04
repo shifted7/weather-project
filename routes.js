@@ -21,7 +21,7 @@ function handleHome(request, response){
 
 function handleToday(request, response){
   console.log(request.query);
-  getOpenWeatherData(request, response);
+  // getOpenWeatherData(request, response);
   getDarkSkyWeatherData(request, response);
 }
 
@@ -60,19 +60,19 @@ function getWeatherIsHereData(request, response){
   superagent.get(url)
     .then(results=>{
       console.log(results.body);
-    });
-    .catch(error=>{
-      console.error('Did not get results from weatherishere: ', error);
-      response.status(500).send(error)
     })
-};
+    .catch(error => {
+      console.error('Did not get results from weatherishere: ', error);
+      response.status(500).send(error);
+    });
+}
 
 function getDarkSkyWeatherData(request, response){
   console.log(request.query);
   let city = request.query.input;
 
   const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
-  const darkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
+  const DarkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
 
   // let darkSky = new Promise(darkSkyForecast)
 
@@ -80,9 +80,11 @@ function getDarkSkyWeatherData(request, response){
 
   darkSkyForecast(city).then( data => {
     console.log(data);
-    let darkSky = new darkSkyTranslator(data.data, data.lat ,data.lon );
-    console.log(darkSky);
-    response.send(darkSky);
+    let darkSky = new DarkSkyTranslator(data.data, data.lat ,data.lon );
+    console.log('test', darkSky);
+    console.log(JSON.stringify(darkSky));
+
+    response.send(JSON.stringify(darkSky));
   });
 
   //let location = request.query
@@ -92,3 +94,4 @@ function getDarkSkyWeatherData(request, response){
 
 
 module.exports = {handleHome, handleToday, handleForecast};
+
