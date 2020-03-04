@@ -99,7 +99,7 @@ function getDarkSkyWeatherData(request, response){
     console.log(data);
     let darkSky = new darkSkyTranslator(data.data, data.lat ,data.lon );
     console.log('Dark Sky:',darkSky);
-    storeWeatherData(darkSky.data);
+    // storeWeatherData(darkSky.data);
     response.send(darkSky);
   });
 
