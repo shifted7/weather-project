@@ -11,7 +11,7 @@ function getWeather(event){
   // add ajax call with query to '/'
   $.ajax('')
   $.ajax(`/today/?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
-    .then(bananas => {
-      console.log(bananas);
+    .then(ajaxResponse => {
+      console.log('Ajax response recieved:', ajaxResponse);
     });
 }

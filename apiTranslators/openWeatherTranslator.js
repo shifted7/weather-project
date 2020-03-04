@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 'use strict';
 
-function OpenWeatherTranslator(obj){
+function OpenWeatherTranslation(obj){
   this.city_name = obj.city.name;
   this.date = obj.list[0].dt;
   this.latitude = obj.city.coord.lat;
@@ -16,4 +16,4 @@ function OpenWeatherTranslator(obj){
 }
 
 // eslint-disable-next-line no-undef
-module.exports = OpenWeatherTranslator;
+module.exports = OpenWeatherTranslation;
