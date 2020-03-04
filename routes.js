@@ -52,14 +52,18 @@ function getWeatherIsHereData(request, response){
 
 function getDarkSkyWeatherData(request, response){
   console.log(request.query);
-  let city = request.query.city;
+  let city = request.query.input;
 
   const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
   const darkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
 
+  // let darkSky = new Promise(darkSkyForecast)
+
+  
+
   darkSkyForecast(city).then( data => {
     console.log(data);
-    let darkSky = new darkSkyTranslator(data.forecast,data.lat ,data.lon );
+    let darkSky = new darkSkyTranslator(data.data, data.lat ,data.lon );
     console.log(darkSky);
     response.send(darkSky);
   });

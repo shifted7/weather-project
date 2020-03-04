@@ -7,19 +7,28 @@ require('dotenv');
 
 function darkSkyForecast(cityName){
 
-  let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityName}&format=json`;
+  return new Promise(function(resolve, reject) {
+    let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityName}&format=json`;
+    // console.log('loc', lociqUrl);
+    superagent.get(lociqUrl)
+      .then(data => {
+        console.log('loqIQ', data.body[0]);
+        let latitude = data.body[0].lat;
+        let longitude = data.body[0].lon;
+        let darkUrl = `https://api.darksky.net/forecast/${process.env.DARKSKY_API}/${latitude},${longitude}`;
+  
+        superagent.get(darkUrl)
+          .then( forecast => {
+            console.log('totheFORE', forecast.body.daily.data[0]);
+            if(forecast){
+              resolve({data:forecast.body.daily.data[0], lat:latitude, lon:longitude,});
+            } else {
+              reject(Error("It Broke"));
+            }
+          });
+      });
 
-  superagent.get(lociqUrl)
-    .then(data => {
-      let latitude = data[0].lat;
-      let longitude = data[0].lon;
-      let darkUrl = `https://api.darksky.net/forecast/${process.env.DARKSKY_API}/${latitude},${longitude}`;
-
-      superagent.get(darkUrl)
-        .then( forecast => {
-          return {data:forecast, lat:latitude, lon:longitude};
-        });
-    });
+  });
 }
 
 
