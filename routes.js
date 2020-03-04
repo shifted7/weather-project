@@ -63,10 +63,11 @@ const OpenWeatherTranslation = require('./apiTranslators/openWeatherTranslator')
 function getOpenWeatherData(request, response){
   let cityNameQuery = request.query.input;
   let url = `http://api.openweathermap.org/data/2.5/forecast?q=${cityNameQuery}&appid=${process.env.OPEN_WEATHER_API_KEY}`;
+  console.log(url);
   superagent(url)
     .then(results=>{
-      console.log(results.body.data);
-      let newForecast = new OpenWeatherTranslation({userInput: cityNameQuery, results: results.body});
+      console.log('open weather data:', results.body);
+      let newForecast = new OpenWeatherTranslation(results.body);
       storeWeatherData(newForecast);
       response.send(newForecast);
       // newTodayForecast = new OpenWeatherTranslation(results.body); // Need to check sending correct obj to translator
@@ -89,10 +90,11 @@ function getIsHereWeatherData(request, response){
       let latitude = data.body[0].lat;
       let longitude = data.body[0].lon;
       let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}&product=forecast_7days_simple&latitude=${latitude}&longitude=${longitude}`;
+      console.log(url);
       superagent.get(url)
         .then(results=>{
-          console.log(results.body);
-          let newForecast = new WeatherIsHereTranslation({userInput: cityNameQuery, results: results.body});
+          console.log('weatherIsHere results: ', results.body);
+          let newForecast = new WeatherIsHereTranslation(results.body);
           storeWeatherData(newForecast);
           response.send(newForecast);
 
