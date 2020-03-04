@@ -37,17 +37,19 @@
       </video>
       <h1>Truthy Weather</h1>
       <aside>
-        <input name="getWeatherInput" type="text" placeholder="Enter a city">
-        <button>Saved Locations</button>
-        <button id="getWeatherButton">Get Weather</button>
-        <ul>
-          <% cities.forEach(city => { %>
-            <li><%= city.city_name %></li>
-          <% }); %>
-        </ul>
-      </aside>
-    </header>
-    <main>
+        <div>
+          <button>Saved Locations</button>
+          <button id="getWeatherButton">Get Weather</button>
+          <input name="getWeatherInput" type="text" placeholder="Enter a city">
+      </div>
+    </aside>
+  </header>
+  <main>
+      <ul>
+        <% cities.forEach(city => { %>
+          <li><%= city.city_name %></li>
+        <% }); %>
+      </ul>
       <section class=avg>
         <div id="current"><%= obj.current %></div>
         <div id="meter"><%= obj.confidence %></div>
@@ -71,6 +73,7 @@
             <li><a href="https://www.qries.com/"><img alt="Qries" src="img/twitter.png" height="40"></a></li>
             <li><a href="https://www.qries.com/"><img alt="Qries" src="img/pintrest.png" height="40"></a></li>
           </ul>
+          <button class=element>The Team</button>
         </nav>
       </footer>
     </main>
