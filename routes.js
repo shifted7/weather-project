@@ -71,7 +71,7 @@ function getOpenWeatherData(request, response){
   let url = `http://api.openweathermap.org/data/2.5/forecast?q=${cityNameQuery}&appid=${process.env.OPEN_WEATHER_API_KEY}`;
   superagent(url)
     .then(results=>{
-      let newForecast = new OpenWeatherTranslation(results.body);
+      let newForecast = new OpenWeatherTranslation(results.body, cityNameQuery);
       storeWeatherData(newForecast).then( data => {
         response.send(data[0]);
       });
@@ -86,8 +86,8 @@ function getOpenWeatherData(request, response){
 const WeatherIsHereTranslation = require('./apiTranslators/weatherIsHereTranslator');
 
 function getIsHereWeatherData(request, response){
-  let cityQuery = request.query.input;
-  let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityQuery}&format=json`;
+  let cityNameQuery = request.query.input;
+  let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityNameQuery}&format=json`;
   return superagent.get(lociqUrl)
     .then(data => {
       let latitude = data.body[0].lat;
@@ -95,7 +95,7 @@ function getIsHereWeatherData(request, response){
       let url = `https://weather.ls.hereapi.com/weather/1.0/report.json?apiKey=${process.env.WEATHERISHERE_API_KEY}&product=forecast_7days_simple&latitude=${latitude}&longitude=${longitude}`;
       superagent.get(url)
         .then(results=>{
-          let newForecast = new WeatherIsHereTranslation(results.body);
+          let newForecast = new WeatherIsHereTranslation(results.body, cityNameQuery);
           storeWeatherData(newForecast).then( data => {
             response.send(data[0]);
           });
