@@ -62,3 +62,22 @@ function openPopup(content){
   winpops.document.write('<div id="content">' + content + '</div>');
 }
 
+$(function() {
+  $('.delete').click(function(){
+    let cityVal = $(event.target).parent().find('span').text();
+
+    $.ajax(`delete/${cityVal}`, {method:'DELETE', dataType:'JSON',})
+      .then( data => {
+        console.log(data);
+        console.log(`removed ${cityVal} from database`);
+        location.reload();
+      });
+  });
+
+  $('.query').click(function(){
+    let cityVal = $(event.target).parent().find('span').text();
+
+    
+  })
+
+});
