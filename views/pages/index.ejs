@@ -10,14 +10,28 @@
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
     <link rel="stylesheet" type="text/css" href="/css/module.css">
     <title>Truthy Weather</title>
+    
+    <script id="averageCard" type="text/x-handlebars-template">
+      <div class="average">
+        <h1>{{city_name}}</h1>
+        <ul>
+          <li class="tempA">{{temp}}</li>
+          <li class="humidA">{{humidity}}</li>
+          <li class="windSpeedA">{{wind_speed}}</li>
+        </ul>
+        <div class="body">
+          {{body}}
+        </div>
+      </div>
+    </script>
 
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry">
         <h1>{{city_name}}</h1>
         <ul>
-          <li>{{temperature}}</li>
-          <li>{{humidity}}</li>
-          <li>{{wind_speed}}</li>
+          <li class="temp">{{temperature}}</li>
+          <li class="humid">{{humidity}}</li>
+          <li class="windSpeed">{{wind_speed}}</li>
           <li>{{wind_direction}}</li>
           <li>{{description}}</li>
           <li>{{api_name}}</li>
@@ -55,7 +69,7 @@
     <section id="avgcard">
 
     </section>
-      <section class=avg>
+      <section id="apiCards">
         <div id="current"></div>
         <div id="meter"></div>
         <div id="forecast"></div>
@@ -88,7 +102,7 @@
                 <li class="modalli">
                   <h4>Anthony Cuningham</h4>
                   <img src="/img/Anthony.jpg" alt="Anthony Image">
-                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                  <p> Full-stack software warlock (engineer) with experience in HTML, CSS, JS, and SQL. Veteran of 6 years with 3 years in Team management. Enjoys D&D, MtG, and Motorcycles. (Ducati)
                   </p>
                 </li>
                 <li class="modalli">
