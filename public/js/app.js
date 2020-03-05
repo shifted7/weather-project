@@ -114,7 +114,7 @@ $(function() {
     temperature = temperature / cards.length;
     temperature = temperature.toFixed(1);
     console.log(temperature);
-    let obj = {'name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
+    let obj = {'city_name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
     let source = $('#averageCard').html();
     let template = Handlebars.compile(source);
     let card = template(obj);
