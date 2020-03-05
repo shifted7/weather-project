@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 'use strict';
 
-function WeatherIsHereTranslation(obj){
-  this.city_name = obj.dailyForecasts.forecastLocation.city;
+function WeatherIsHereTranslation(obj, city){
+  this.city_name = city;
   this.date = Math.floor(new Date(obj.dailyForecasts.forecastLocation.forecast[0].utcTime) / 1000);
   this.latitude = obj.dailyForecasts.forecastLocation.latitude;
   this.longitude = obj.dailyForecasts.forecastLocation.longitude;
