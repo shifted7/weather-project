@@ -1,16 +1,17 @@
 
 main{
   width: 100%;
-  font-size: 30px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 header{
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 header h1{
@@ -43,9 +44,15 @@ button{
 }
 
 #apiCards .entry{
-  width: 50%;
+  width: 95%;
   margin-top: 60px;
   border: 1px solid hotpink;
+  background-color: rgba(0,0,0,.25);
+}
+.entry ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 nav{
@@ -53,6 +60,7 @@ nav{
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 nav ul{
@@ -64,14 +72,24 @@ nav button{
   margin-top: 10px;
 }
 
+
 #savedCities{
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: auto;
   margin-top: 40px;
 }
 #savedCities li{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 60px 60px;
+  
+}
+#savedCities span{
+  justify-self: start;
+  margin-right: 10px;
+}
+#savedCities button{
+  display: block;
 }
 
 #query{
@@ -81,10 +99,6 @@ nav button{
 #delete{
   height: 14px;
   font-size: xx-small;
-}
-li{
-  display: inline;
-  margin: 0px 20px;
 }
 
 /* The Modal (background) */
@@ -142,37 +156,27 @@ li{
   cursor: pointer;
 }
 @media screen and (min-width:481px) and (max-width: 1024px) {
-  section{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-  }
-  article{
+  #apiCards{
       display: grid;
       grid-template-columns: 1fr;
-  }
-  aside{
-      float: none;
+      width: 66%;
+      justify-items: center;
   }
 }
 
 @media screen and (min-width:1024px){
-  article{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-  }
-  h1{
-      font-size: 5em;
+  #apiCards h1{
+      font-size: 3em;
       padding-bottom: 100px;
   }
   header{
       height:400px;
   }
-  .modalul{
-      display: flex;
-      flex-direction: row;
+  #apiCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  .modalli{
-      margin: 40px 0px;
-      
+  #apiCards .entry ul{
+    grid-template-columns: 1fr;
   }
 }

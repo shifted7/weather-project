@@ -15,9 +15,9 @@
       <div class="average">
         <h1>{{city_name}}</h1>
         <ul>
-          <li class="tempA">{{temp}}</li>
-          <li class="humidA">{{humidity}}</li>
-          <li class="windSpeedA">{{wind_speed}}</li>
+          <li class="tempA">Temperature: {{temp}} F</li>
+          <li class="humidA">Humidity: {{humidity}}%</li>
+          <li class="windSpeedA">Wind speed: {{wind_speed}} m/s</li>
         </ul>
         <div class="body">
           {{body}}
@@ -29,12 +29,12 @@
       <div class="entry">
         <h1>{{city_name}}</h1>
         <ul>
-          <li class="temp">{{temperature}}</li>
-          <li class="humid">{{humidity}}</li>
-          <li class="windSpeed">{{wind_speed}}</li>
-          <li>{{wind_direction}}</li>
+          <li class="temp">Temperature: {{temperature}} F</li>
+          <li class="humid">Humidity: {{humidity}}%</li>
+          <li class="windSpeed">Wind speed: {{wind_speed}} m/s</li>
+          <li>Wind direction: {{wind_direction}} deg from north</li>
           <li>{{description}}</li>
-          <li>{{api_name}}</li>
+          <li>Source: {{api_name}}</li>
         </ul>
         <div class="body">
           {{body}}
@@ -58,7 +58,8 @@
       <aside>
         <ul id="savedCities">
           <% cities.forEach(city => { %>
-          <li><span><%= city.city_name %></span><button class='query' id="query"> Search </button>
+          <li><span><%= city.city_name %></span>
+          <button class='query' id="query"> Search </button>
           <button class='delete' id="delete"> Delete </button></li>
           <% }); %>
         </ul>
