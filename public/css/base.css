@@ -41,14 +41,11 @@ main{
     padding-right: 15%;
     font-size: 30px;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 50px;
-}
-ul{
-    height: 150px;
-    margin: auto;
-}
+    /* /* display: grid; */
+    /* grid-template-columns: 1fr;
+    grid-gap: 50px; */
+} */
+
 .api1{
     height: 100px;
 }
@@ -57,6 +54,13 @@ ul{
 }
 .api3{
     height: 100px;
+}
+#savcedcities{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    clear: both;
+
 }
 #current{
     height: 120px;

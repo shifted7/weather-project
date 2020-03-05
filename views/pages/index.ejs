@@ -36,20 +36,26 @@
         <source src="/video/Raindrops_Videvo.mp4" type="video/mp4">
       </video>
       <h1>Truthy Weather</h1>
-      <aside>
-        <div>
-          <button>Saved Locations</button>
-          <button id="getWeatherButton">Get Weather</button>
-          <input name="getWeatherInput" type="text" placeholder="Enter a city">
-      </div>
+      <div>
+        <button>Saved Locations</button>
+        <button id="getWeatherButton">Get Weather</button>
+        <input name="getWeatherInput" type="text" placeholder="Enter a city">
+    </div>
+      <misc>
+<ul id="savedcities">
+        <% cities.forEach(city => { %>
+          <li><%= city.city_name %><button id="query"> Search </button>
+          <button id="delete"> Delete </button></li>
+          
+          <% }); %>
+        </ul>
+      </misc>
     </aside>
   </header>
   <main>
-      <ul>
-        <% cities.forEach(city => { %>
-          <li><%= city.city_name %></li>
-        <% }); %>
-      </ul>
+    <section id="avgcard">
+
+    </section>
       <section class=avg>
         <div id="current"><%= obj.current %></div>
         <div id="meter"><%= obj.confidence %></div>
