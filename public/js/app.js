@@ -5,7 +5,16 @@ let getWeatherButton = $('#getWeatherButton');
 $(getWeatherButton).on('click', getWeather);
 
 function getWeather(event){
-  let getWeatherInput = $('input').val();
+  let getWeatherInput = '';
+
+  if(event.target.id === 'query'){
+    getWeatherInput = $(event.target).parent().find('span').text();
+  }else{
+    getWeatherInput = $('input').val();
+  }
+
+  $('.entry').remove();
+
   console.log(getWeatherInput);
   // add ajax call with query to '/'
   $.ajax(`/today/openWeather?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
@@ -74,10 +83,6 @@ $(function() {
       });
   });
 
-  $('.query').click(function(){
-    let cityVal = $(event.target).parent().find('span').text();
-
-    
-  })
+  $('.query').click(getWeather);
 
 });
