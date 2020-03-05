@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 // eslint-disable-next-line no-undef
@@ -16,14 +17,14 @@ function darkSkyForecast(cityName){
         let latitude = data.body[0].lat;
         let longitude = data.body[0].lon;
         let darkUrl = `https://api.darksky.net/forecast/${process.env.DARKSKY_API}/${latitude},${longitude}`;
-  
+
         superagent.get(darkUrl)
           .then( forecast => {
             console.log('totheFORE', forecast.body.daily.data[0]);
             if(forecast){
               resolve({data:forecast.body.daily.data[0], lat:latitude, lon:longitude,});
             } else {
-              reject(Error("It Broke"));
+              reject(Error('It Broke'));
             }
           });
       });
