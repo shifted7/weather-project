@@ -13,7 +13,7 @@ function getWeather(event){
       console.log('openWeather response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse[0]);
+      let card = template(ajaxResponse);
       $('#forecast').append(card);
       console.log('OpenWeather response rendered', ajaxResponse);
     });
@@ -23,7 +23,7 @@ function getWeather(event){
       console.log('isHere response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse[0]);
+      let card = template(ajaxResponse);
       $('#forecast').append(card);
       console.log('IsHere response rendered', ajaxResponse);
     });
@@ -33,7 +33,7 @@ function getWeather(event){
       console.log('darkSky response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse[0]);
+      let card = template(ajaxResponse);
       $('#forecast').append(card);
       console.log('Dark sky response rendered', ajaxResponse);
     });
