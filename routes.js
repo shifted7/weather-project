@@ -21,7 +21,7 @@ function handleHome(request, response){
   let sql = 'SELECT DISTINCT city_name FROM locations;';
   client.query(sql)
     .then(dbData => {
-      response.render('./pages/index', {obj: data, cities: dbData.rows,});
+      response.render('./pages/index', {cities: dbData.rows,});
     });
 }
 

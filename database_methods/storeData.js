@@ -17,7 +17,6 @@ function storeWeatherData(obj){
       .then( data => {
 
         if(data){
-          console.log('new data inserted in to id:', data.rows);
           resolve(data.rows);
         }else{
           reject('No query return');
