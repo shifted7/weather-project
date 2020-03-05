@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 require('dotenv').config();
@@ -68,7 +69,7 @@ function getOpenWeatherData(request, response){
   superagent(url)
     .then(results=>{
       console.log('open weather data:', results.body);
-      let newForecast = new OpenWeatherTranslation(results.body);
+      let newForecast = new OpenWeatherTranslation(results.body, cityNameQuery);
       storeWeatherData(newForecast).then( data => {
         response.send(data[0]);
       });
@@ -95,7 +96,7 @@ function getIsHereWeatherData(request, response){
       superagent.get(url)
         .then(results=>{
           // console.log('weatherIsHere results: ', results.body);
-          let newForecast = new WeatherIsHereTranslation(results.body);
+          let newForecast = new WeatherIsHereTranslation(results.body, cityQuery);
           storeWeatherData(newForecast).then( data => {
             response.send(data[0]);
           });
@@ -111,18 +112,13 @@ function getIsHereWeatherData(request, response){
     });
 }
 
-
-
-const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
 const DarkSkyTranslation = require('./apiTranslators/darkSkyTranslator');
 
 // Dark Sky endpoint function
 function getDarkSkyWeatherData(request, response){
   let city = request.query.input;
   const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
-  const darkSkyTranslator = require('./apiTranslators/darkSkyTranslator');
   const storeWeatherData = require('./database_methods/storeData');
-  // let darkSky = new Promise(darkSkyForecast)
 
   let sql = 'SELECT * FROM locations WHERE city_name=$1 AND api_name=$2 AND $3 - date_retrieved < 84000 LIMIT 1;';
   let today = new Date();
@@ -154,5 +150,5 @@ function getDarkSkyWeatherData(request, response){
     });
 }
 
-module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData};
+module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData,};
 
