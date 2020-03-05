@@ -2,17 +2,18 @@
 'use strict';
 
 function WeatherIsHereTranslation(obj){
-  this.city_name = obj.obseravations.location[0].city;
-  this.date = Math.floor(new Date(obj.observations.observation[0].utcTime) / 1000);
-  this.latitude = obj.observations.location[0].latitude;
-  this.longitude = obj.observations.location[0].longitude;
-  this.temperature = (obj.observations.observation[0].temperature * 9 / 5) + 32;
-  this.humidity = obj.observations.observation[0].humidity;
-  this.wind_speed = obj.obseravations.observation[0].windSpeed;
-  this.wind_direction = obj.observations.observation[0].windDirection;
-  this.description = obj.observations.observation[0].description;
+  this.city_name = obj.dailyForecasts.forecastLocation.city;
+  this.date = Math.floor(new Date(obj.dailyForecasts.forecastLocation.forecast[0].utcTime) / 1000);
+  this.latitude = obj.dailyForecasts.forecastLocation.latitude;
+  this.longitude = obj.dailyForecasts.forecastLocation.longitude;
+  this.temperature = (obj.dailyForecasts.forecastLocation.forecast[0].highTemperature * 9 / 5) + 32;
+  this.humidity = obj.dailyForecasts.forecastLocation.forecast[0].humidity;
+  this.wind_speed = obj.dailyForecasts.forecastLocation.forecast[0].windSpeed;
+  this.wind_direction = obj.dailyForecasts.forecastLocation.forecast[0].windDirection;
+  this.description = obj.dailyForecasts.forecastLocation.forecast[0].description;
   this.api_name = 'weatherIsHere';
-  this.date_retrieved = new Date();
+  let now = new Date();
+  this.date_retrieved = Math.round(now.getTime() / 1000);
 }
 
 // eslint-disable-next-line no-undef

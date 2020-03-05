@@ -10,9 +10,10 @@ function OpenWeatherTranslation(obj){
   this.humidity = obj.list[0].main.humidity;
   this.wind_speed = obj.list[0].wind.speed;
   this.wind_direction = obj.list[0].wind.deg;
-  this.description = obj.weather[0].description;
+  this.description = obj.list[0].weather.description;
   this.api_name = 'openWeather';
-  this.date_retrieved = new Date();
+  let now = new Date();
+  this.date_retrieved = Math.round(now.getTime() / 1000);
 }
 
 // eslint-disable-next-line no-undef

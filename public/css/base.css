@@ -4,6 +4,7 @@
 body{
     color: hotpink;
     background-image: url(../video/Blue_Sky_and_Clouds_Timelapse_0892__Videvo.mov);
+    font-family: monospace;
 }
 video{
     position: fixed;
@@ -15,24 +16,27 @@ input{
 }
 button{
     text-align: center;
-    /* float: right; */
-    height:40px;
+    height:32px;
+    opacity: 45%;
+    border-radius: 25px;
 }
-header{
-    display: inline;
-}
+
 h1{
     font-family: 'Libre Barcode 39 Text';
     font-size: 6em;
     text-align: center;
     color: hotpink;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
 }
 aside{
     display: block;
     height:100px;
-    float: left;
-    clear: both;
+    margin: auto;
+    width: 80%;
+}
+div{
+    width: fit-content;
+    margin: auto;
 }
 main{
     width: 100%;
@@ -40,10 +44,11 @@ main{
     padding-right: 15%;
     font-size: 30px;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 50px;
-}
+    /* /* display: grid; */
+    /* grid-template-columns: 1fr;
+    grid-gap: 50px; */
+} */
+
 .api1{
     height: 100px;
 }
@@ -52,6 +57,14 @@ main{
 }
 .api3{
     height: 100px;
+}
+#savedcities{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    clear: both;
+    width: 20%
+
 }
 #current{
     height: 120px;
@@ -62,9 +75,20 @@ main{
 #forecast{
     height: 70px;
 }
+#query{
+    height: 14px;
+    font-size: xx-small;
+}
+#delete{
+    height: 14px;
+    font-size: xx-small;
+}
 li{
     display: inline;
     padding-left: 20px;
+}
+nav{
+    height: 90px;
 }
 @media screen and (min-width:481px) and (max-width: 1080px) {
     section{
@@ -92,10 +116,17 @@ aside{
 @media screen and (min-width:1080px){
     section{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
     article{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    h1{
+        font-size: 9em;
+        padding-bottom: 100px;
+    }
+    header{
+        height:400px;
     }
 }

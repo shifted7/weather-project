@@ -25,9 +25,9 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', routes.handleHome);
-app.get('/today', routes.handleToday);
-app.get('/forecast', routes.handleForecast);
-app.get('/darksky', routes.getDarkSkyWeatherData);
+app.get('/today/openWeather', routes.handleTodayOpenWeatherAPIorDB);
+app.get('/today/isHere', routes.handleTodayIsHereAPIorDB);
+app.get('/today/darkSky', routes.getDarkSkyWeatherData);
 
 client.connect()
   .then(() =>
