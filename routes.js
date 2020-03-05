@@ -82,6 +82,7 @@ function getOpenWeatherData(request, response){
 
 
 const WeatherIsHereTranslation = require('./apiTranslators/weatherIsHereTranslator');
+
 function getIsHereWeatherData(request, response){
   let cityQuery = request.query.input;
   let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityQuery}&format=json`;
@@ -158,7 +159,7 @@ function deleteCity(request, response){
   client.query(sql,safeVals)
     .then( results => {
       console.log(`${safeVals[0]} removed from database`, results);
-      response.redirect('/');
+      response.send({test:'done'});
     });
 }
 

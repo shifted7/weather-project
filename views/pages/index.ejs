@@ -44,8 +44,8 @@
       <misc>
         <ul id="savedcities">
           <% cities.forEach(city => { %>
-          <li><%= city.city_name %><button id="query"> Search </button>
-          <button id="delete"> Delete </button></li>
+          <li><span><%= city.city_name %></span><button class='query' id="query"> Search </button>
+          <button class='delete' id="delete"> Delete </button></li>
           <% }); %>
         </ul>
       </misc>
