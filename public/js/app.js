@@ -9,6 +9,7 @@ function getWeather(event){
 
   if(event.target.id === 'query'){
     getWeatherInput = $(event.target).parent().find('span').text();
+    console.log('getWeatherInput', getWeatherInput);
   }else{
     getWeatherInput = $('input').val();
   }
@@ -22,13 +23,10 @@ function getWeather(event){
       console.log('openWeather response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-<<<<<<< HEAD
-      $('#forecast').append(card);
-      $('#forecast').trigger('focus');
-=======
-      $('#apiCards').append(card);
->>>>>>> 2469f06b8b81e69858ae4b761d9b365219da8527
+      let card1 = template(ajaxResponse);
+      $('#apiCards').append(card1);
+      $('#apiCards').trigger('focus');
+
       console.log('OpenWeather response rendered', ajaxResponse);
     });
 
@@ -37,14 +35,10 @@ function getWeather(event){
       console.log('isHere response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-<<<<<<< HEAD
-      $('#forecast').append(card);
-      $('#forecast').trigger('focus');
+      let card2 = template(ajaxResponse);
+      $('#apiCards').append(card2);
+      $('#apiCards').trigger('focus');
 
-=======
-      $('#apiCards').append(card);
->>>>>>> 2469f06b8b81e69858ae4b761d9b365219da8527
       console.log('IsHere response rendered', ajaxResponse);
     });
 
@@ -53,13 +47,9 @@ function getWeather(event){
       console.log('darkSky response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-<<<<<<< HEAD
-      $('#forecast').append(card);
-      $('#forecast').trigger('focus');
-=======
-      $('#apiCards').append(card);
->>>>>>> 2469f06b8b81e69858ae4b761d9b365219da8527
+      let card3 = template(ajaxResponse);
+      $('#apiCards').append(card3);
+      $('#apiCards').trigger('focus');
       console.log('Dark sky response rendered', ajaxResponse);
     });
 }
