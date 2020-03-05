@@ -64,7 +64,7 @@ main{
     float: left;
     clear: both;
     width: 20%
-
+    
 }
 #current{
     height: 120px;
@@ -83,13 +83,14 @@ main{
     height: 14px;
     font-size: xx-small;
 }
+#mybutton{
+    padding-top: 20px;
+}
 li{
     display: inline;
     padding-left: 20px;
 }
-nav{
-    height: 90px;
-}
+
 /* The Modal (background) */
 .modal {
     color: rgba(0, 0, 0, 0.);
@@ -105,23 +106,36 @@ nav{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,.5); /* Black w/ opacity */
 }
+.modal img{
+    width: 300px;
+}
 
   /* Modal Content/Box */
 .modal-content {
     font-family: 'Montserrat', sans-serif;;
     font-size: 18px;
     color: ivory;
-    background-color: rgba(0,0,0,0);;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    background-color: rgba(0,0,0,.2);;
+    margin: 10% auto; /* 15% from the top and centered */
     width: 80%; /* Could be more or less, depending on screen size */
 }
-
-  /* The Close Button */
+.modal h4{
+    font-family: 'Libre Barcode 39 Text';
+    font-size: 50px;
+}
+.modalul{
+    display: flex;
+    flex-direction: column;
+}
+.modalli{
+    margin-top: 40px;
+    
+}
+/* The Close Button */
 .close {
     color: hotpink;
     float: right;
-    font-size: 38px;
+    font-size: 45px;
     font-weight: bold;
 }
 
@@ -130,8 +144,8 @@ nav{
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-@media screen and (min-width:481px) and (max-width: 1080px) {
+}
+@media screen and (min-width:481px) and (max-width: 1024px) {
     section{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -139,22 +153,22 @@ nav{
     article{
         display: grid;
         grid-template-columns: 1fr;
-}
-aside{
-    float: none;
-}
-.api1{
-    float: left;
-}
-.api2{
-    float: right;
-}
-.api3{
-    float: left;
-}
+    }
+    aside{
+        float: none;
+    }
+    .api1{
+        float: left;
+    }
+    .api2{
+        float: right;
+    }
+    .api3{
+        float: left;
+    }
 }
 
-@media screen and (min-width:1080px){
+@media screen and (min-width:1024px){
     section{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -169,5 +183,13 @@ aside{
     }
     header{
         height:400px;
+    }
+    .modalul{
+        display: flex;
+        flex-direction: row;
+    }
+    .modalli{
+        margin: 40px 0px;
+        
     }
 }
