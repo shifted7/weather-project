@@ -94,16 +94,9 @@ $(function() {
 
   $('.query').click(getWeather);
 
-  // Call out forecast element
-  // .focus(callback)
-  // grab forecast children,
-  //  loop through them,
-  //  grab specific child elements,
-  //  do Math,
-  //  then append
-
   $('#apiCards').click(function(){
     let cards = $('.entry');
+    let name = '';
     let humidity = 0;
     let temperature = 0;
     let windspeed = 0;
@@ -113,19 +106,19 @@ $(function() {
       temperature += parseInt($(cards[x]).find('.temp').text());
       humidity += parseInt($(cards[x]).find('.humid').text());
       windspeed += parseInt($(cards[x]).find('.windSpeed').text());
+      name = $(cards[0]).find('h1').text();
     }
+    console.log('name', name);
 
-    
+
     temperature = temperature / cards.length;
     temperature = temperature.toFixed(1);
     console.log(temperature);
-    let obj = {'temp': temperature,'humidity':humidity,'wind_speed':windspeed};
+    let obj = {'name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
     let source = $('#averageCard').html();
     let template = Handlebars.compile(source);
     let card = template(obj);
     $('#avgCard').find('.average').remove();
     $('#avgCard').append(card);
   });
-
-
 });
