@@ -4,6 +4,7 @@
 body{
     color: hotpink;
     background-image: url(../video/Blue_Sky_and_Clouds_Timelapse_0892__Videvo.mov);
+    font-family: monospace;
 }
 video{
     position: fixed;
@@ -15,7 +16,9 @@ input{
 }
 button{
     text-align: center;
-    height:40px;
+    height:32px;
+    opacity: 45%;
+    border-radius: 25px;
 }
 
 h1{
@@ -55,11 +58,12 @@ main{
 .api3{
     height: 100px;
 }
-#savcedcities{
+#savedcities{
     display: flex;
     flex-direction: column;
     float: left;
     clear: both;
+    width: 20%
 
 }
 #current{
@@ -70,6 +74,14 @@ main{
 }
 #forecast{
     height: 70px;
+}
+#query{
+    height: 14px;
+    font-size: xx-small;
+}
+#delete{
+    height: 14px;
+    font-size: xx-small;
 }
 li{
     display: inline;
