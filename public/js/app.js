@@ -20,37 +20,37 @@ function getWeather(event){
   // add ajax call with query to '/'
   $.ajax(`/today/openWeather?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
-      console.log('openWeather response recieved:', ajaxResponse);
+      // console.log('openWeather response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
       let card1 = template(ajaxResponse);
       $('#apiCards').append(card1);
-      $('#apiCards').trigger('focus');
+      $('#apiCards').trigger('click');
 
-      console.log('OpenWeather response rendered', ajaxResponse);
+      // console.log('OpenWeather response rendered', ajaxResponse);
     });
 
   $.ajax(`/today/isHere?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
-      console.log('isHere response recieved:', ajaxResponse);
+      // console.log('isHere response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
       let card2 = template(ajaxResponse);
       $('#apiCards').append(card2);
-      $('#apiCards').trigger('focus');
+      $('#apiCards').trigger('click');
 
-      console.log('IsHere response rendered', ajaxResponse);
+      // console.log('IsHere response rendered', ajaxResponse);
     });
 
   $.ajax(`/today/darkSky?input=${getWeatherInput}`, {method: 'GET', dataType:'JSON',})
     .then(ajaxResponse =>{
-      console.log('darkSky response recieved:', ajaxResponse);
+      // console.log('darkSky response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
       let card3 = template(ajaxResponse);
       $('#apiCards').append(card3);
-      $('#apiCards').trigger('focus');
-      console.log('Dark sky response rendered', ajaxResponse);
+      $('#apiCards').trigger('click');
+      // console.log('Dark sky response rendered', ajaxResponse);
     });
 }
 
@@ -102,21 +102,27 @@ $(function() {
   //  do Math,
   //  then append
 
-  $('#apiCards').focus(function(){
+  $('#apiCards').click(function(){
     let cards = $('.entry');
     let humidity = 0;
     let temperature = 0;
     let windspeed = 0;
-    cards.forEach(card =>{
-      temperature += card.find('.temp').text();
+    console.log('cards', cards);
 
-    });
+    for(let x = 0; x < cards.length; x++){
+      temperature += parseInt($(cards[x]).find('.temp').text());
+      humidity += parseInt($(cards[x]).find('.humid').text());
+      windspeed += parseInt($(cards[x]).find('.windSpeed').text());
+    }
+
+    
     temperature = temperature / cards.length;
+    temperature = temperature.toFixed(1);
     console.log(temperature);
-    let obj = {'temp': temperature,};
+    let obj = {'temp': temperature,'humidity':humidity,'wind_speed':windspeed};
     let source = $('#averageCard').html();
     let template = Handlebars.compile(source);
-    let card = template(card);
+    let card = template(obj);
     $('#avgCard').find('.average').remove();
     $('#avgCard').append(card);
   });
