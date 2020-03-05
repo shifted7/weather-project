@@ -1,0 +1,178 @@
+
+main{
+  width: 100%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1{
+  font-family: 'Libre Barcode 39 Text';
+  font-size: 6em;
+  color: hotpink;
+  padding-bottom: 30px;
+}
+
+video{
+  position: fixed;
+  z-index: -1;
+}
+
+input{
+  height:40px;
+  width:280px;
+}
+button{
+  text-align: center;
+  height:32px;
+  opacity: 45%;
+  border-radius: 25px;
+}
+
+#apiCards{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+#apiCards .entry{
+  width: 50%;
+  margin-top: 60px;
+  border: 1px solid hotpink;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+nav ul{
+  display: flex;
+  justify-content: center;
+}
+nav button{
+  width: 200px;
+  margin-top: 10px;
+}
+
+#savedCities{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-top: 40px;
+}
+#savedCities li{
+  display: flex;
+}
+
+#query{
+  height: 14px;
+  font-size: xx-small;
+}
+#delete{
+  height: 14px;
+  font-size: xx-small;
+}
+li{
+  display: inline;
+  margin: 0px 20px;
+}
+
+/* The Modal (background) */
+.modal {
+  color: rgba(0, 0, 0, 0.);
+  font-family: 'Montserrat', sans-serif;;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,.5); /* Black w/ opacity */
+}
+.modal img{
+  width: 300px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  font-family: 'Montserrat', sans-serif;;
+  font-size: 18px;
+  color: ivory;
+  background-color: rgba(0,0,0,.2);;
+  margin: 10% auto; /* 15% from the top and centered */
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal h4{
+  font-family: 'Libre Barcode 39 Text';
+  font-size: 50px;
+}
+.modalul{
+  display: flex;
+  flex-direction: column;
+}
+.modalli{
+  margin-top: 40px;
+  
+}
+/* The Close Button */
+.close {
+  color: hotpink;
+  float: right;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media screen and (min-width:481px) and (max-width: 1024px) {
+  section{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+  article{
+      display: grid;
+      grid-template-columns: 1fr;
+  }
+  aside{
+      float: none;
+  }
+}
+
+@media screen and (min-width:1024px){
+  article{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+  h1{
+      font-size: 5em;
+      padding-bottom: 100px;
+  }
+  header{
+      height:400px;
+  }
+  .modalul{
+      display: flex;
+      flex-direction: row;
+  }
+  .modalli{
+      margin: 40px 0px;
+      
+  }
+}
