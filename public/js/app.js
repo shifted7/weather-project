@@ -10,30 +10,34 @@ function getWeather(event){
   // add ajax call with query to '/'
   $.ajax(`/today/openWeather?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
-      console.log('Ajax response recieved:', ajaxResponse);
+      console.log('openWeather response recieved:', ajaxResponse);
+      let source = $('#entry-template').html();
+      let template = Handlebars.compile(source);
+      let card = template(ajaxResponse[0]);
+      $('#forecast').append(card);
+      console.log('OpenWeather response rendered', ajaxResponse);
     });
 
   $.ajax(`/today/isHere?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
     .then(ajaxResponse => {
-      console.log('Ajax response recieved:', ajaxResponse);
+      console.log('isHere response recieved:', ajaxResponse);
+      let source = $('#entry-template').html();
+      let template = Handlebars.compile(source);
+      let card = template(ajaxResponse[0]);
+      $('#forecast').append(card);
+      console.log('IsHere response rendered', ajaxResponse);
     });
   
   $.ajax(`/today/darkSky?input=${getWeatherInput}`, {method: 'GET', dataType:'JSON',})
-    .then(darkskyresponse =>{
-      // console.log('hello');
-      console.log(typeof(darkskyresponse));
-      // darkskyresponse = JSON.parse(darkskyresponse);
-      console.log('response', darkskyresponse);
-      let source = document.getElementById('entry-template').innerHTML;
-      console.log('1');
+    .then(ajaxResponse =>{
+      console.log('darkSky response recieved:', ajaxResponse);
+      let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      console.log('2');
-      let card = template(darkskyresponse[0]);
-      console.log('3');
+      let card = template(ajaxResponse[0]);
       $('#forecast').append(card);
-      console.log('4');
-      console.log('Dark sky response recieved', darkskyresponse);
+      console.log('Dark sky response rendered', ajaxResponse);
     });
+  
 }
 
 

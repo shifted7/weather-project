@@ -38,7 +38,6 @@
       <h1>Truthy Weather</h1>
       <aside>
         <div>
-          <button>Saved Locations</button>
           <button id="getWeatherButton">Get Weather</button>
           <input name="getWeatherInput" type="text" placeholder="Enter a city">
       </div>
@@ -51,20 +50,10 @@
         <% }); %>
       </ul>
       <section class=avg>
-        <div id="current"><%= obj.current %></div>
-        <div id="meter"><%= obj.confidence %></div>
-        <div id="forecast">{{../forecast}}</div>
+        <div id="current"></div>
+        <div id="meter"></div>
+        <div id="forecast"></div>
       </section>
-      <article>
-        <div class=api>
-          <ul>
-            <h2><%= obj.temp %></h2>
-            <li><%= obj.windSpeed %></li>
-            <li><%= obj.windDir %></li>
-            <li><%= obj.desc %></li>
-          </ul>
-        </div>
-      </article>
       <footer>
         <nav>
           <ul>
