@@ -28,7 +28,7 @@ app.get('/', routes.handleHome);
 app.get('/today/openWeather', routes.handleTodayOpenWeatherAPIorDB);
 app.get('/today/isHere', routes.handleTodayIsHereAPIorDB);
 app.get('/today/darkSky', routes.getDarkSkyWeatherData);
-app.delete('/remove:city', routes.deleteCity);
+app.delete('/remove/:city', routes.deleteCity);
 
 client.connect()
   .then(() =>
