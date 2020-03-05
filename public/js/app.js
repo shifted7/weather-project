@@ -114,6 +114,4 @@ $(function() {
     $('#avgCard').find('.average').remove();
     $('#avgCard').append(card);
   });
-
-
 });
