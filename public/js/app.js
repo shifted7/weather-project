@@ -37,7 +37,7 @@ function getWeather(event){
       $('#forecast').append(card);
       console.log('Dark sky response rendered', ajaxResponse);
     });
-  
+
 }
 
 
