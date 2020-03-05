@@ -70,8 +70,6 @@ function getOpenWeatherData(request, response){
       let newForecast = new OpenWeatherTranslation(results.body);
       storeWeatherData(newForecast);
       response.send(newForecast);
-      // newTodayForecast = new OpenWeatherTranslation(results.body); // Need to check sending correct obj to translator
-      // response.send(newTodayForecast); // Can't do multiple responses, need to have 3 routes
     })
     .catch(error=> {
       console.error('Failed to get results from openweather: ', error);
@@ -97,9 +95,6 @@ function getIsHereWeatherData(request, response){
           let newForecast = new WeatherIsHereTranslation(results.body);
           storeWeatherData(newForecast);
           response.send(newForecast);
-
-          // newTodayForecast = new WeatherIsHereTranslation(results.body); // Need to check sending correct obj to translator
-          // response.send() // Can't do multiple responses, need to have 3 routes
         })
         .catch(error=>{
           console.error('Did not get results from weatherishere: ', error);
