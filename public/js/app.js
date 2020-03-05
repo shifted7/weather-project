@@ -24,6 +24,7 @@ function getWeather(event){
       let template = Handlebars.compile(source);
       let card = template(ajaxResponse);
       $('#forecast').append(card);
+      $('#forecast').trigger('focus');
       console.log('OpenWeather response rendered', ajaxResponse);
     });
 
@@ -34,6 +35,8 @@ function getWeather(event){
       let template = Handlebars.compile(source);
       let card = template(ajaxResponse);
       $('#forecast').append(card);
+      $('#forecast').trigger('focus');
+
       console.log('IsHere response rendered', ajaxResponse);
     });
 
@@ -44,6 +47,7 @@ function getWeather(event){
       let template = Handlebars.compile(source);
       let card = template(ajaxResponse);
       $('#forecast').append(card);
+      $('#forecast').trigger('focus');
       console.log('Dark sky response rendered', ajaxResponse);
     });
 }
