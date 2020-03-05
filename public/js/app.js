@@ -5,7 +5,16 @@ let getWeatherButton = $('#getWeatherButton');
 $(getWeatherButton).on('click', getWeather);
 
 function getWeather(event){
-  let getWeatherInput = $('input').val();
+  let getWeatherInput = '';
+
+  if(event.target.id === 'query'){
+    getWeatherInput = $(event.target).parent().find('span').text();
+  }else{
+    getWeatherInput = $('input').val();
+  }
+
+  $('.entry').remove();
+
   console.log(getWeatherInput);
   // add ajax call with query to '/'
   $.ajax(`/today/openWeather?input=${getWeatherInput}`, {method:'GET', dataType:'JSON',})
@@ -37,28 +46,47 @@ function getWeather(event){
       $('#forecast').append(card);
       console.log('Dark sky response rendered', ajaxResponse);
     });
-  
 }
 
 
-// When element .element clicked
-$('.element').click(function(e){
-  // Set the content in a variable
-  // This can be dynamically generated from elements on the page
-  // E.g. var content = $('#textarea').val(); - This will grab the value of a form element with the ID #textarea
-  // OR var content = $('#div').html(); - Will get the content from a div with the ID #div
+// Get the modal
+var modal = document.getElementById("myModal");
 
-  // Satic text content for this example
-  var content = '<div class="popup-content">This is some amazing content!</div>';
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-  // Call the function to open the popup with the content from var = content
-  openPopup(content);
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+$(function() {
+  $('.delete').click(function(){
+    let cityVal = $(event.target).parent().find('span').text();
+
+    $.ajax(`delete/${cityVal}`, {method:'DELETE', dataType:'JSON',})
+      .then( data => {
+        console.log(data);
+        console.log(`removed ${cityVal} from database`);
+        location.reload();
+      });
+  });
+
+  $('.query').click(getWeather);
+
 });
-// Function to open the popup
-// Setup - URL,name,specs,replace
-function openPopup(content){
-  winpops = window.open('','Popup Name','fullscreen=no, toolbar=yes, status=yes, menubar=yes, scrollbars=yes, resizable=yes, directories=yes, location=yes, width=500, height=400, left=100, top=100, screenX=100, screenY=100');
-  // Write the content to the popup
-  winpops.document.write('<div id="content">' + content + '</div>');
-}
-

@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 'use strict';
 
-function OpenWeatherTranslation(obj){
-  this.city_name = obj.city.name;
+function OpenWeatherTranslation(obj, city){
+  this.city_name = city;
   this.date = obj.list[0].dt;
   this.latitude = obj.city.coord.lat;
   this.longitude = obj.city.coord.lon;

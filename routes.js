@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 require('dotenv').config();
@@ -83,6 +84,7 @@ function getOpenWeatherData(request, response){
 
 
 const WeatherIsHereTranslation = require('./apiTranslators/weatherIsHereTranslator');
+
 function getIsHereWeatherData(request, response){
   let cityQuery = request.query.input;
   let lociqUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_API}&q=${cityQuery}&format=json`;
@@ -109,9 +111,6 @@ function getIsHereWeatherData(request, response){
     });
 }
 
-
-
-const darkSkyForecast = require('./apiHandlers/darkSkyHandler');
 const DarkSkyTranslation = require('./apiTranslators/darkSkyTranslator');
 
 // Dark Sky endpoint function
@@ -141,5 +140,17 @@ function getDarkSkyWeatherData(request, response){
     });
 }
 
-module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData};
+
+function deleteCity(request, response){
+  let sql = 'DELETE FROM locations WHERE city_name=$1';
+  let safeVals = [request.params.city];
+
+  client.query(sql,safeVals)
+    .then( results => {
+      console.log(`${safeVals[0]} removed from database`, results);
+      response.send({test:'done'});
+    });
+}
+
+module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData, deleteCity,};
 

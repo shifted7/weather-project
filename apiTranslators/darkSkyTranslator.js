@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 function DarkSkyTranslation(obj, city, lat, lon){
@@ -15,4 +16,5 @@ function DarkSkyTranslation(obj, city, lat, lon){
   this.date_retrieved = Math.round(now.getTime() / 1000);
 }
 
+// eslint-disable-next-line no-undef
 module.exports = DarkSkyTranslation;
