@@ -112,6 +112,7 @@ function getIsHereWeatherData(request, response){
 }
 
 const DarkSkyTranslation = require('./apiTranslators/darkSkyTranslator');
+const darkSkyForecast = require('./apiHandlers/darkSkyForecast');
 
 // Dark Sky endpoint function
 function getDarkSkyWeatherData(request, response){
