@@ -9,6 +9,7 @@ function getWeather(event){
 
   if(event.target.id === 'query'){
     getWeatherInput = $(event.target).parent().find('span').text();
+    console.log('getWeatherInput', getWeatherInput);
   }else{
     getWeatherInput = $('input').val();
   }
@@ -22,8 +23,10 @@ function getWeather(event){
       console.log('openWeather response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-      $('#apiCards').append(card);
+      let card1 = template(ajaxResponse);
+      $('#apiCards').append(card1);
+      $('#apiCards').trigger('focus');
+
       console.log('OpenWeather response rendered', ajaxResponse);
     });
 
@@ -32,8 +35,10 @@ function getWeather(event){
       console.log('isHere response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-      $('#apiCards').append(card);
+      let card2 = template(ajaxResponse);
+      $('#apiCards').append(card2);
+      $('#apiCards').trigger('focus');
+
       console.log('IsHere response rendered', ajaxResponse);
     });
 
@@ -42,8 +47,9 @@ function getWeather(event){
       console.log('darkSky response recieved:', ajaxResponse);
       let source = $('#entry-template').html();
       let template = Handlebars.compile(source);
-      let card = template(ajaxResponse);
-      $('#apiCards').append(card);
+      let card3 = template(ajaxResponse);
+      $('#apiCards').append(card3);
+      $('#apiCards').trigger('focus');
       console.log('Dark sky response rendered', ajaxResponse);
     });
 }

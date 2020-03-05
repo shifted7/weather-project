@@ -54,7 +54,7 @@ function handleTodayIsHereAPIorDB(request, response){
         if(checkForecastDataIsRecent(results.rows)){
           response.send(results.rows[0]);
         } else{
-          getOpenWeatherData(request, response);
+          getIsHereWeatherData(request, response);
         }
       }else {
         getIsHereWeatherData(request, response);
