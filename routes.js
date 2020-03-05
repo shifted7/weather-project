@@ -150,5 +150,17 @@ function getDarkSkyWeatherData(request, response){
     });
 }
 
-module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData,};
+
+function deleteCity(request, response){
+  let sql = 'DELETE FROM locations WHERE city_name=$1';
+  let safeVals = [request.params.city];
+
+  client.query(sql,safeVals)
+    .then( results => {
+      console.log(`${safeVals[0]} removed from database`, results);
+      response.redirect('/');
+    });
+}
+
+module.exports = {handleHome, handleTodayOpenWeatherAPIorDB, handleTodayIsHereAPIorDB, getDarkSkyWeatherData, deleteCity,};
 
