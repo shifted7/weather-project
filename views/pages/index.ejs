@@ -54,27 +54,25 @@
       <div>
         <button id="getWeatherButton">Get Weather</button>
         <input name="getWeatherInput" type="text" placeholder="Enter a city">
-    </div>
-      <misc>
-        <ul id="savedcities">
+      </div>
+      <aside>
+        <ul id="savedCities">
           <% cities.forEach(city => { %>
           <li><span><%= city.city_name %></span><button class='query' id="query"> Search </button>
           <button class='delete' id="delete"> Delete </button></li>
           <% }); %>
         </ul>
-      </misc>
-    </aside>
+      </aside>
   </header>
   <main>
-    <section id="avgcard">
+    <section id="avgCard">
 
     </section>
-      <section id="apiCards">
-        <div id="current"></div>
-        <div id="meter"></div>
-        <div id="forecast"></div>
-      </section>
-      <footer>
+    <section id="apiCards">
+
+    </section>
+    <footer>
+
         <nav>
           <ul>
             <li><a href="https://www.qries.com/"><img alt="Qries" src="img/facebook.png" height="40"></a></li>
