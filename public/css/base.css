@@ -4,6 +4,7 @@
 body{
     color: hotpink;
     background-image: url(../video/Blue_Sky_and_Clouds_Timelapse_0892__Videvo.mov);
+    font-family: monospace;
 }
 video{
     position: fixed;
@@ -15,7 +16,9 @@ input{
 }
 button{
     text-align: center;
-    height:40px;
+    height:32px;
+    opacity: 45%;
+    border-radius: 25px;
 }
 
 h1{
@@ -41,14 +44,11 @@ main{
     padding-right: 15%;
     font-size: 30px;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 50px;
-}
-ul{
-    height: 150px;
-    margin: auto;
-}
+    /* /* display: grid; */
+    /* grid-template-columns: 1fr;
+    grid-gap: 50px; */
+} */
+
 .api1{
     height: 100px;
 }
@@ -58,6 +58,14 @@ ul{
 .api3{
     height: 100px;
 }
+#savedcities{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    clear: both;
+    width: 20%
+
+}
 #current{
     height: 120px;
 }
@@ -66,6 +74,14 @@ ul{
 }
 #forecast{
     height: 70px;
+}
+#query{
+    height: 14px;
+    font-size: xx-small;
+}
+#delete{
+    height: 14px;
+    font-size: xx-small;
 }
 li{
     display: inline;

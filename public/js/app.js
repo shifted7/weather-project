@@ -27,7 +27,7 @@ function getWeather(event){
       $('#forecast').append(card);
       console.log('IsHere response rendered', ajaxResponse);
     });
-  
+
   $.ajax(`/today/darkSky?input=${getWeatherInput}`, {method: 'GET', dataType:'JSON',})
     .then(ajaxResponse =>{
       console.log('darkSky response recieved:', ajaxResponse);
@@ -59,6 +59,6 @@ $('.element').click(function(e){
 function openPopup(content){
   winpops = window.open('','Popup Name','fullscreen=no, toolbar=yes, status=yes, menubar=yes, scrollbars=yes, resizable=yes, directories=yes, location=yes, width=500, height=400, left=100, top=100, screenX=100, screenY=100');
   // Write the content to the popup
-  winpops.document.write('<div id="content">'+content+'</div>');
+  winpops.document.write('<div id="content">' + content + '</div>');
 }
 
