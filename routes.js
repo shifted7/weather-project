@@ -30,8 +30,8 @@ function handleHome(request, response){
 function handleTodayOpenWeatherAPIorDB(request, response){
   // console.log('Query:', request.query);
   let city = request.query.input;
-  let sql = 'SELECT * FROM locations WHERE city_name = $1;';
-  let safeValues = [city];
+  let sql = 'SELECT * FROM locations WHERE city_name = $1; AND api_name = $2;';
+  let safeValues = [city, 'openWeather'];
   client.query(sql, safeValues)
     .then(results => {
       if (results.rows.length > 0){
@@ -45,8 +45,8 @@ function handleTodayOpenWeatherAPIorDB(request, response){
 function handleTodayIsHereAPIorDB(request, response){
   // console.log('Query:', request.query);
   let city = request.query.input;
-  let sql = 'SELECT * FROM locations WHERE city_name = $1;';
-  let safeValues = [city];
+  let sql = 'SELECT * FROM locations WHERE city_name = $1 AND api_name = $2;';
+  let safeValues = [city, 'weatherIsHere'];
   client.query(sql, safeValues)
     .then(results => {
       if (results.rows.length > 0){
@@ -72,8 +72,6 @@ function getOpenWeatherData(request, response){
       storeWeatherData(newForecast).then( data => {
         response.send(data[0]);
       });
-      // newTodayForecast = new OpenWeatherTranslation(results.body); // Need to check sending correct obj to translator
-      // response.send(newTodayForecast); // Can't do multiple responses, need to have 3 routes
     })
     .catch(error=> {
       console.error('Failed to get results from openweather: ', error);
@@ -101,9 +99,6 @@ function getIsHereWeatherData(request, response){
           storeWeatherData(newForecast).then( data => {
             response.send(data[0]);
           });
-
-          // newTodayForecast = new WeatherIsHereTranslation(results.body); // Need to check sending correct obj to translator
-          // response.send() // Can't do multiple responses, need to have 3 routes
         })
         .catch(error=>{
           console.error('Did not get results from weatherishere: ', error);
