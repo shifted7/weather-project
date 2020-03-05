@@ -30,7 +30,7 @@ function handleHome(request, response){
 function handleTodayOpenWeatherAPIorDB(request, response){
   // console.log('Query:', request.query);
   let city = request.query.input;
-  let sql = 'SELECT * FROM locations WHERE city_name = $1; AND api_name = $2;';
+  let sql = 'SELECT * FROM locations WHERE city_name = $1 AND api_name = $2;';
   let safeValues = [city, 'openWeather'];
   client.query(sql, safeValues)
     .then(results => {
