@@ -159,12 +159,13 @@ nav button{
 /* Modal Content/Box */
 .modal-content {
   display: grid;
+  justify-items: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   color: ivory;
   background-color: rgba(0,0,0,.2);
   margin: 10% auto; /* 15% from the top and centered */
-  width: 70%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
 }
 .modal h4{
   font-family: 'Libre Barcode 39 Text';
@@ -174,6 +175,7 @@ nav button{
 .modalul{
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 .modalli{
   margin-top: 40px;
@@ -183,7 +185,7 @@ nav button{
   margin-bottom: 50px;
 }
 .modal p{
-  width: 70%;
+  width: 100%;
 }
 /* The Close Button */
 .close {
