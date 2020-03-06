@@ -172,18 +172,26 @@ nav button{
   cursor: pointer;
 }
 @media screen and (min-width:481px) and (max-width: 1024px) {
+  #apiCards h1{
+    font-size: 3em;
+    padding-bottom: 30px;
+  }
   #apiCards{
       display: grid;
       grid-template-columns: 1fr;
       width: 66%;
       justify-items: center;
   }
+  header h1{
+    font-size: 8em;
+  }
+
 }
 
 @media screen and (min-width:1024px){
   #apiCards h1{
       font-size: 3em;
-      padding-bottom: 100px;
+      padding-bottom: 30px;
   }
   header{
       height:400px;
@@ -194,5 +202,8 @@ nav button{
   }
   #apiCards .entry ul{
     grid-template-columns: 1fr;
+  }
+  header h1{
+    font-size: 10em;
   }
 }
