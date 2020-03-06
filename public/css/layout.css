@@ -38,9 +38,47 @@ button{
   font-size: 11.5px;
 }
 
+#savedCities{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-top: 40px;
+}
+#savedCities li{
+  display: grid;
+  grid-template-columns: 1fr 60px 60px;
+  
+}
+#savedCities span{
+  justify-self: start;
+  margin-right: 10px;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bolder;
+}
+#savedCities button{
+  display: block;
+}
+
+#query{
+  height: 14px;
+  font-size: xx-small;
+}
+#delete{
+  height: 14px;
+  font-size: xx-small;
+}
+
+#avgCard{
+  margin-top: 40px;
+  width:50%
+  height: 100px;
+  border: 1px solid hotpink;
+  background-color: rgba(0,0,0,.45);
+}
+
 #apiCards{
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
 }
 
@@ -66,40 +104,13 @@ nav{
 
 nav ul{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 nav button{
   width: 200px;
   margin-top: 10px;
 }
-
-
-#savedCities{
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  margin-top: 40px;
-}
-#savedCities li{
-  display: grid;
-  grid-template-columns: 1fr 60px 60px;
-  
-}
-#savedCities span{
-  justify-self: start;
-  margin-right: 10px;
-  font-size: 14px;
-  line-height: 26px;
-  font-weight: bolder;
-}
-#savedCities button{
-  display: block;
-}
-
-#avgCard{
-  height: 100px;
-  border: 1px solid hotpink;
-  background-color: rgba(0,0,0,.45);
 
 /* The Modal (background) */
 .modal {
@@ -187,9 +198,6 @@ nav button{
   #apiCards h1{
       font-size: 3em;
       padding-bottom: 30px;
-  }
-  header{
-      height:400px;
   }
   #apiCards{
     display: grid;
