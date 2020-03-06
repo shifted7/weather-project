@@ -13,8 +13,9 @@
     
     <script id="averageCard" type="text/x-handlebars-template">
       <div class="average">
-        <h1>{{city_name}} Average</h1>
+        <h1>{{city_name}}</h1>
         <ul>
+          <li>Today's Forecast:</li>
           <li class="temp">Temperature: <span>{{temp}}</span> F</li>
           <li class="humid">Humidity: <span>{{humidity}}</span>%</li>
           <li class="windSpeed">Wind speed: <span>{{wind_speed}}</span> m/s</li>
@@ -27,14 +28,14 @@
 
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry">
-        <h1>{{city_name}}</h1>
+        <h1>{{api_name}}</h1>
         <ul>
+          <li class="cityName">{{city_name}}</li>
           <li class="temp">Temperature: <span>{{temperature}}</span> F</li>
           <li class="humid">Humidity: <span>{{humidity}}</span>%</li>
           <li class="windSpeed">Wind speed: <span>{{wind_speed}}</span> m/s</li>
           <li>Wind direction: {{wind_direction}} deg from north</li>
           <li>{{description}}</li>
-          <li>Source: {{api_name}}</li>
         </ul>
         <div class="body">
           {{body}}
@@ -81,7 +82,7 @@
             <li><a href="https://www.qries.com/"><img alt="Qries" src="img/twitter.png" height="40"></a></li>
             <li><a href="https://www.qries.com/"><img alt="Qries" src="img/pintrest.png" height="40"></a></li>
           </ul>
-          <button id="myBtn">Team Truthy Weather</button>
+          <button id="myBtn">Team Plantain</button>
           <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>
