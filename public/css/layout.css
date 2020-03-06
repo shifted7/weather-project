@@ -16,9 +16,9 @@ header{
 
 header h1{
   font-family: 'Libre Barcode 39 Text';
-  font-size: 6em;
+  font-size: 7em;
   color: hotpink;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 video{
@@ -33,45 +33,10 @@ input{
 button{
   text-align: center;
   height:32px;
-  opacity: 45%;
+  opacity: 60%;
   border-radius: 25px;
+  font-size: 11.5px;
 }
-
-#apiCards{
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-items: center;
-}
-
-#apiCards .entry{
-  width: 95%;
-  margin-top: 60px;
-  border: 1px solid hotpink;
-  background-color: rgba(0,0,0,.25);
-}
-.entry ul{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-nav{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-nav ul{
-  display: flex;
-  justify-content: center;
-}
-nav button{
-  width: 200px;
-  margin-top: 10px;
-}
-
 
 #savedCities{
   display: flex;
@@ -81,15 +46,20 @@ nav button{
 }
 #savedCities li{
   display: grid;
-  grid-template-columns: 1fr 60px 60px;
-  
+  grid-template-columns: 1fr 80px 80px;
+  align-items: center;
 }
 #savedCities span{
   justify-self: start;
   margin-right: 10px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bolder;
 }
 #savedCities button{
   display: block;
+  margin: 5px;
+  height: 25px;
 }
 
 #query{
@@ -100,10 +70,69 @@ nav button{
   height: 14px;
   font-size: xx-small;
 }
+
 #avgCard{
-  height: 100px;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+#avgCard .average{
+  width: 95%;
+  margin-top: 40px;
   border: 1px solid hotpink;
-  background-color: rgba(0,0,0,.25);
+  background-color: rgba(0,0,0,.45);
+}
+#avgCard h1{
+  font-size: 2.5em;
+  padding-bottom: 30px;
+}
+#avgCard li{
+  font-size: 22px;
+  line-height: 35px;
+}
+
+#apiCards{
+  display: grid;
+  justify-items: center;
+}
+#apiCards h1{
+  font-size: 2em;
+  padding-bottom: 30px;
+}
+#apiCards .entry{
+  width: 95%;
+  margin-top: 40px;
+  border: 1px solid hotpink;
+  background-color: rgba(0,0,0,.45);
+}
+#apiCards ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#avgCard li, #apiCards li{
+  margin:5px;
+}
+
+footer{
+  width: 100%;
+}
+nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+nav ul{
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+nav button{
+  width: 200px;
+  margin-top: 10px;
 }
 
 /* The Modal (background) */
@@ -122,21 +151,25 @@ nav button{
   background-color: rgba(0,0,0,.5); /* Black w/ opacity */
 }
 .modal img{
-  width: 300px;
+  width: 350PX;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  font-family: 'Montserrat', sans-serif;;
+  display: grid;
+  font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   color: ivory;
-  background-color: rgba(0,0,0,.2);;
+  background-color: rgba(0,0,0,.2);
   margin: 10% auto; /* 15% from the top and centered */
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 70%; /* Could be more or less, depending on screen size */
 }
 .modal h4{
   font-family: 'Libre Barcode 39 Text';
-  font-size: 50px;
+  font-size: 60px;
+  text-align: center;
 }
 .modalul{
   display: flex;
@@ -144,7 +177,13 @@ nav button{
 }
 .modalli{
   margin-top: 40px;
-  
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+.modal p{
+  width: 70%;
 }
 /* The Close Button */
 .close {
@@ -161,27 +200,60 @@ nav button{
   cursor: pointer;
 }
 @media screen and (min-width:481px) and (max-width: 1024px) {
-  #apiCards{
-      display: grid;
-      grid-template-columns: 1fr;
-      width: 66%;
-      justify-items: center;
+  header h1{
+    font-size: 8.75em;
   }
+
+  #avgCard{
+    width: 66%
+  }
+  #avgCard h1{
+    font-size: 3em;
+    padding-bottom: 30px;
+  }
+  #avgCard li{
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  #apiCards{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 66%;
+    justify-items: center;
+}
+  #apiCards h1{
+    font-size: 2em;
+    padding-bottom: 30px;
+  }
+  
 }
 
 @media screen and (min-width:1024px){
-  #apiCards h1{
-      font-size: 3em;
-      padding-bottom: 100px;
+  header h1{
+    font-size: 8.75em;
   }
-  header{
-      height:400px;
+  #avgCard{
+    width: 66%;
+  }
+  #avgCard h1{
+    font-size: 4em;
+    padding-bottom: 30px;
+  }
+  #avgCard li{
+    font-size: 32px;
+    line-height: 40px;
   }
   #apiCards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  #apiCards h1{
+    font-size: 2.2em;
+    padding-bottom: 30px;
+  }
   #apiCards .entry ul{
     grid-template-columns: 1fr;
   }
+  
 }

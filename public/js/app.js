@@ -81,6 +81,10 @@ window.onclick = function(event) {
 };
 
 $(function() {
+
+  $('#avgCard').hide();
+
+
   $('.delete').click(function(){
     let cityVal = $(event.target).parent().find('span').text();
 
@@ -95,8 +99,9 @@ $(function() {
   $('.query').click(getWeather);
 
   $('#apiCards').click(function(){
+    $('#avgCard').show();
     let cards = $('.entry');
-    let name = '';
+    let name = $(cards[0]).find('.cityName').text();
     let humidity = 0;
     let temperature = 0;
     let windspeed = 0;
@@ -106,7 +111,6 @@ $(function() {
       temperature += parseInt($(cards[x]).find('.temp').find('span').text());
       humidity += parseInt($(cards[x]).find('.humid').find('span').text());
       windspeed += parseInt($(cards[x]).find('.windSpeed').find('span').text());
-      name = $(cards[0]).find('h1').text();
     }
     console.log('name', name);
 
