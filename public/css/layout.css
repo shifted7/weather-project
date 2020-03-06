@@ -37,42 +37,6 @@ button{
   border-radius: 25px;
 }
 
-#apiCards{
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  justify-items: center;
-}
-
-#apiCards .entry{
-  width: 95%;
-  margin-top: 60px;
-  border: 1px solid hotpink;
-  background-color: rgba(0,0,0,.25);
-}
-.entry ul{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-nav{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-nav ul{
-  display: flex;
-  justify-content: center;
-}
-nav button{
-  width: 200px;
-  margin-top: 10px;
-}
-
-
 #savedCities{
   display: flex;
   flex-direction: column;
@@ -100,6 +64,49 @@ nav button{
   height: 14px;
   font-size: xx-small;
 }
+
+#avgCard{
+  margin-top: 40px;
+  width:50%
+}
+
+#apiCards{
+  display: grid;
+  justify-items: center;
+}
+
+#apiCards .entry{
+  width: 95%;
+  margin-top: 60px;
+  border: 1px solid hotpink;
+  background-color: rgba(0,0,0,.25);
+}
+.entry ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+nav button{
+  width: 200px;
+  margin-top: 10px;
+}
+
+
+
 
 /* The Modal (background) */
 .modal {
@@ -168,9 +175,6 @@ nav button{
   #apiCards h1{
       font-size: 3em;
       padding-bottom: 100px;
-  }
-  header{
-      height:400px;
   }
   #apiCards{
     display: grid;
