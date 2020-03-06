@@ -81,6 +81,10 @@ window.onclick = function(event) {
 };
 
 $(function() {
+
+  $('#avgCard').hide();
+
+
   $('.delete').click(function(){
     let cityVal = $(event.target).parent().find('span').text();
 
@@ -95,6 +99,7 @@ $(function() {
   $('.query').click(getWeather);
 
   $('#apiCards').click(function(){
+    $('#avgCard').show();
     let cards = $('.entry');
     let name = '';
     let humidity = 0;
