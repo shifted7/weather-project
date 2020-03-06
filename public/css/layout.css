@@ -16,19 +16,19 @@ header{
 
 header h1{
   font-family: 'Libre Barcode 39 Text';
-  font-size: 7em;
+  font-size: 5em;
   color: hotpink;
   padding-bottom: 40px;
 }
-
-video{
-  position: fixed;
-  z-index: -1;
+header div{
+  max-width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
-input{
+header input{
   height:40px;
-  width:280px;
+  width:70%;
 }
 button{
   text-align: center;
@@ -36,6 +36,11 @@ button{
   opacity: 60%;
   border-radius: 25px;
   font-size: 11.5px;
+}
+
+video{
+  position: fixed;
+  z-index: -1;
 }
 
 #savedCities{
@@ -128,7 +133,7 @@ nav{
 nav ul{
   display: flex;
   justify-content: space-evenly;
-  width: 30%;
+  width: 200px;
 }
 nav button{
   width: 200px;
@@ -257,5 +262,9 @@ nav button{
   #apiCards .entry ul{
     grid-template-columns: 1fr;
   }
-  
+  nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+  }
 }
