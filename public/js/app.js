@@ -113,6 +113,8 @@ $(function() {
 
     temperature = temperature / cards.length;
     temperature = temperature.toFixed(1);
+    humidity = (humidity / cards.length).toFixed(1);
+    windspeed = (windspeed / cards.length).toFixed(1);
     console.log('temp', temperature);
     let obj = {'city_name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
     let source = $('#averageCard').html();
