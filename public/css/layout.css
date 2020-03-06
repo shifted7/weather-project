@@ -48,7 +48,7 @@ button{
   width: 95%;
   margin-top: 60px;
   border: 1px solid hotpink;
-  background-color: rgba(0,0,0,.25);
+  background-color: rgba(0,0,0,.45);
 }
 .entry ul{
   display: grid;
@@ -96,16 +96,10 @@ nav button{
   display: block;
 }
 
-/* #query:hover{
-  height: 14px;
-  font-size: 7px;
-  transition-duration: 0.4s;
-}
-#delete:hover{
-  height: 14px;
-  font-size: 7px;
-  transition-duration: 0.4s;
-} */
+#avgCard{
+  height: 100px;
+  border: 1px solid hotpink;
+  background-color: rgba(0,0,0,.45);
 
 /* The Modal (background) */
 .modal {
@@ -123,21 +117,26 @@ nav button{
   background-color: rgba(0,0,0,.5); /* Black w/ opacity */
 }
 .modal img{
-  width: 300px;
+  width: 350PX;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Modal Content/Box */
 .modal-content {
+  display: grid;
+  grid-template-rows: ;
   font-family: 'Montserrat', sans-serif;;
   font-size: 18px;
   color: ivory;
   background-color: rgba(0,0,0,.2);;
   margin: 10% auto; /* 15% from the top and centered */
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 70%; /* Could be more or less, depending on screen size */
 }
 .modal h4{
   font-family: 'Libre Barcode 39 Text';
-  font-size: 50px;
+  font-size: 60px;
+  text-align: center;
 }
 .modalul{
   display: flex;
@@ -145,7 +144,13 @@ nav button{
 }
 .modalli{
   margin-top: 40px;
-  
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+.modal p{
+  width: 70%;
 }
 /* The Close Button */
 .close {
@@ -162,18 +167,26 @@ nav button{
   cursor: pointer;
 }
 @media screen and (min-width:481px) and (max-width: 1024px) {
+  #apiCards h1{
+    font-size: 3em;
+    padding-bottom: 30px;
+  }
   #apiCards{
       display: grid;
       grid-template-columns: 1fr;
       width: 66%;
       justify-items: center;
   }
+  header h1{
+    font-size: 8em;
+  }
+
 }
 
 @media screen and (min-width:1024px){
   #apiCards h1{
       font-size: 3em;
-      padding-bottom: 100px;
+      padding-bottom: 30px;
   }
   header{
       height:400px;
@@ -184,5 +197,8 @@ nav button{
   }
   #apiCards .entry ul{
     grid-template-columns: 1fr;
+  }
+  header h1{
+    font-size: 10em;
   }
 }
