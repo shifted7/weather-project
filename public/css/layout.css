@@ -262,6 +262,13 @@ nav button{
   #apiCards .entry ul{
     grid-template-columns: 1fr;
   }
+
+  .modalul{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
   nav ul{
     display: flex;
     justify-content: space-evenly;
