@@ -103,9 +103,9 @@ $(function() {
     console.log('cards', cards);
 
     for(let x = 0; x < cards.length; x++){
-      temperature += parseInt($(cards[x]).find('.temp').text());
-      humidity += parseInt($(cards[x]).find('.humid').text());
-      windspeed += parseInt($(cards[x]).find('.windSpeed').text());
+      temperature += parseInt($(cards[x]).find('.temp').find('span').text());
+      humidity += parseInt($(cards[x]).find('.humid').find('span').text());
+      windspeed += parseInt($(cards[x]).find('.windSpeed').find('span').text());
       name = $(cards[0]).find('h1').text();
     }
     console.log('name', name);
@@ -113,8 +113,10 @@ $(function() {
 
     temperature = temperature / cards.length;
     temperature = temperature.toFixed(1);
-    console.log(temperature);
-    let obj = {'name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
+    humidity = (humidity / cards.length).toFixed(1);
+    windspeed = (windspeed / cards.length).toFixed(1);
+    console.log('temp', temperature);
+    let obj = {'city_name': name,'temp': temperature,'humidity':humidity,'wind_speed':windspeed,};
     let source = $('#averageCard').html();
     let template = Handlebars.compile(source);
     let card = template(obj);

@@ -13,11 +13,11 @@
     
     <script id="averageCard" type="text/x-handlebars-template">
       <div class="average">
-        <h1>{{city_name}}</h1>
+        <h1>{{city_name}} Average</h1>
         <ul>
-          <li class="tempA">Temperature: {{temp}} F</li>
-          <li class="humidA">Humidity: {{humidity}}%</li>
-          <li class="windSpeedA">Wind speed: {{wind_speed}} m/s</li>
+          <li class="temp">Temperature: <span>{{temp}}</span> F</li>
+          <li class="humid">Humidity: <span>{{humidity}}</span>%</li>
+          <li class="windSpeed">Wind speed: <span>{{wind_speed}}</span> m/s</li>
         </ul>
         <div class="body">
           {{body}}
@@ -29,9 +29,9 @@
       <div class="entry">
         <h1>{{city_name}}</h1>
         <ul>
-          <li class="temp">Temperature: {{temperature}} F</li>
-          <li class="humid">Humidity: {{humidity}}%</li>
-          <li class="windSpeed">Wind speed: {{wind_speed}} m/s</li>
+          <li class="temp">Temperature: <span>{{temperature}}</span> F</li>
+          <li class="humid">Humidity: <span>{{humidity}}</span>%</li>
+          <li class="windSpeed">Wind speed: <span>{{wind_speed}}</span> m/s</li>
           <li>Wind direction: {{wind_direction}} deg from north</li>
           <li>{{description}}</li>
           <li>Source: {{api_name}}</li>
