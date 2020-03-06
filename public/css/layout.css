@@ -101,7 +101,7 @@ video{
   justify-items: center;
 }
 #apiCards h1{
-  font-size: 2em;
+  font-size: 1.5em;
   padding-bottom: 30px;
 }
 #apiCards .entry{
@@ -241,7 +241,7 @@ nav button{
     font-size: 8.75em;
   }
   #avgCard{
-    width: 66%;
+    width: 40%;
   }
   #avgCard h1{
     font-size: 4em;
