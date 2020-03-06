@@ -48,7 +48,7 @@
   <body>
     <header>
       <video autoplay muted loop id="myVideo">
-        <source src="/video/Raindrops_Videvo.mp4" type="video/mp4">
+        <source src="/video/sky.mov" type="video/mp4">
       </video>
       <h1>Truthy Weather</h1>
       <div>
@@ -58,8 +58,8 @@
       <aside>
         <ul id="savedCities">
           <% cities.forEach(city => { %>
-          <li><span><%= city.city_name %></span>
-          <button class='query' id="query"> Search </button>
+          <li>
+          <span><button class='query' id="query"><%= city.city_name %></button></span>
           <button class='delete' id="delete"> Delete </button></li>
           <% }); %>
         </ul>
@@ -76,10 +76,10 @@
 
         <nav>
           <ul>
-            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/facebook.png" height="40"></a></li>
-            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/instagram.png" height="40"></a></li>
-            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/twitter.png" height="40"></a></li>
-            <li><a href="https://www.qries.com/"><img alt="Qries" src="img/pintrest.png" height="40"></a></li>
+            <li><a href="https://www.facebook.com/search/top/?q=weather"><img alt="Qries" src="img/facebook.png" height="40"></a></li>
+            <li><a href="https://www.instagram.com/explore/tags/weather"><img alt="Qries" src="img/instagram.png" height="40"></a></li>
+            <li><a href="https://twitter.com/hashtag/weather"><img alt="Qries" src="img/twitter.png" height="40"></a></li>
+            <li><a href="https://www.pinterest.com/search/pins/?q=Weather&rs=typed&term_meta[]=Weather%7Ctyped/"><img alt="Qries" src="img/pintrest.png" height="40"></a></li>
           </ul>
           <button id="myBtn">Team Truthy Weather</button>
           <div id="myModal" class="modal">

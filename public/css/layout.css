@@ -5,7 +5,9 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 200px;
 }
+
 
 header{
   display: flex;
@@ -15,10 +17,11 @@ header{
 }
 
 header h1{
+  /* background-color: rgba(0,0,0,.45); */
   font-family: 'Libre Barcode 39 Text';
   font-size: 7em;
   color: hotpink;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 video{
@@ -37,7 +40,10 @@ button{
   border-radius: 25px;
   font-size: 11.5px;
 }
-
+footer {
+  position: fixed;
+  bottom: 0;
+}
 #savedCities{
   display: flex;
   flex-direction: column;
@@ -52,7 +58,7 @@ button{
 #savedCities span{
   justify-self: start;
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 26px;
   font-weight: bolder;
 }
@@ -71,15 +77,19 @@ button{
 
 #avgCard{
   margin-top: 40px;
-  width:50%
+  width:auto;
   height: 100px;
   border: 1px solid hotpink;
   background-color: rgba(0,0,0,.45);
+  width:400px;
 }
-
+#avgCard h1{
+  font-size: 1.5em;
+}
 #apiCards{
   display: grid;
   justify-items: center;
+  width: 80%;
 }
 
 #apiCards .entry{
@@ -179,7 +189,7 @@ nav button{
 }
 @media screen and (min-width:481px) and (max-width: 1024px) {
   #apiCards h1{
-    font-size: 3em;
+    font-size: 1.5em;
     padding-bottom: 30px;
   }
   #apiCards{
@@ -196,7 +206,7 @@ nav button{
 
 @media screen and (min-width:1024px){
   #apiCards h1{
-      font-size: 3em;
+      font-size: 2em;
       padding-bottom: 30px;
   }
   #apiCards{
