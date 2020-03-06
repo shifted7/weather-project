@@ -62,6 +62,12 @@
         - Index.ejs no langer has extraneous ejs elements.
         - Routes.js no longer has zombie code in getData functions
         - app.js now correctly renders the ajax response.
+    - Mar 5 2020:       
+        - getData functions now correctly passes a city name to constructors
+        - Refactored styling to use smacss and flexbox/gird.
+        - Added spans to index.ejs to allow jquery targeting for average
+        - Added spans to index templates
+
 
 
 ### User Stories
