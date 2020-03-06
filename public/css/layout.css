@@ -122,21 +122,26 @@ nav button{
   background-color: rgba(0,0,0,.5); /* Black w/ opacity */
 }
 .modal img{
-  width: 300px;
+  width: 350PX;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Modal Content/Box */
 .modal-content {
+  display: grid;
+  grid-template-rows: ;
   font-family: 'Montserrat', sans-serif;;
   font-size: 18px;
   color: ivory;
   background-color: rgba(0,0,0,.2);;
   margin: 10% auto; /* 15% from the top and centered */
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 70%; /* Could be more or less, depending on screen size */
 }
 .modal h4{
   font-family: 'Libre Barcode 39 Text';
-  font-size: 50px;
+  font-size: 60px;
+  text-align: center;
 }
 .modalul{
   display: flex;
@@ -144,7 +149,13 @@ nav button{
 }
 .modalli{
   margin-top: 40px;
-  
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+.modal p{
+  width: 70%;
 }
 /* The Close Button */
 .close {
