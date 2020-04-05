@@ -2,7 +2,7 @@
 'use strict';
 ///////DEPENDENCIES AND LIBRARIES///////
 
-
+try{
 const express = require ('express');
 const app = express();
 
@@ -30,9 +30,17 @@ app.get('/today/isHere', routes.handleTodayIsHereAPIorDB);
 app.get('/today/darkSky', routes.getDarkSkyWeatherData);
 app.delete('/delete/:city', routes.deleteCity);
 
+
 client.connect()
-  .then(() =>
+.then(() =>
     app.listen(PORT, () => {
       console.log(`listening on ${PORT}`);
     })
-  );
+  ).catch(error =>{
+    console.error("Error connecting to database:");
+    console.error(error.message);
+  }); 
+} catch(err){
+  Console.Error("Error during startup:");
+  Console.Error(err.message);
+}
