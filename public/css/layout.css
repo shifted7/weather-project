@@ -173,6 +173,9 @@ nav button{
   margin: 10% auto; /* 15% from the top and centered */
   width: 90%; /* Could be more or less, depending on screen size */
 }
+.modal-content span{
+  justify-self: left;
+}
 .modal h4{
   font-family: 'Libre Barcode 39 Text';
   font-size: 60px;
@@ -199,6 +202,8 @@ nav button{
   float: right;
   font-size: 45px;
   font-weight: bold;
+  width: 45px;
+  text-align: center;
 }
 
 .close:hover,
