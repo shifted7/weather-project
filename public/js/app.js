@@ -1,8 +1,17 @@
 'use strict';
 
+let backgroundVideoSource = 'video/Raindrops_Videvo.mp4';
+
 let getWeatherButton = $('#getWeatherButton');
+let backgroundVideo = $('video');
 
 $(getWeatherButton).on('click', getWeather);
+
+function loadVideoIfDesktop(){
+  if(window.innerWidth > 1024){
+    $(backgroundVideo).attr('src', backgroundVideoSource);
+  }
+}
 
 function getWeather(event){
   let getWeatherInput = '';
@@ -128,3 +137,5 @@ $(function() {
     $('#avgCard').append(card);
   });
 });
+
+loadVideoIfDesktop();
